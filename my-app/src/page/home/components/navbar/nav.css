@@ -1,0 +1,94 @@
+@import url("https://crux-ui.netlify.app/styles.css");
+
+
+.nav{
+    background-color: #1f1d2b;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+}
+
+
+.nav__logo{
+    width:12rem;
+    align-self: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-left: 2rem;
+    color: #fefefe;
+}
+
+
+.nav__avatar{
+
+    align-self: center;
+    background-color:inherit;
+    border-radius: 100%;
+    display: flex;
+    gap:0.5rem;
+}
+
+.nav__avatar-image{
+
+width: 2rem;
+object-fit: cover;
+
+}
+.nav__avatar-name{
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    color: white;
+    align-self: center;
+}
+
+.search{
+
+    color:#353340;
+    align-self: center;
+    padding-left: 3rem;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+
+}
+
+
+.search__input{
+
+    width:65%;
+    color: #9292a1;
+    background-color: #353340;
+    border: #353340;
+    border-radius: 5px;
+    padding-left: 1rem;
+    height:2rem;
+
+}
+
+.search__button{
+
+    position: absolute;
+    cursor: pointer;
+    color: #9292a1;
+    background-color: #353340;
+    border: #353340;
+    text-align: center;
+    width: 2rem;
+    font-size: 1rem;
+    top:10%;
+    left:63%;
+}
+
+.nav__dropdown-menu{
+
+padding-top: 0.5rem;
+font-size:1.2rem;
+align-self: center;
+margin-right: 2rem;
+color:white;
+border:none;
+background-color: inherit;
+
+}
