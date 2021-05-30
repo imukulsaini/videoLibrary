@@ -29,7 +29,9 @@
     display: flex;
     gap:0.5rem;
 }
-
+.nav__avatar:hover{
+    cursor: pointer;
+}
 .nav__avatar-image{
 
 width: 2rem;
@@ -91,4 +93,7 @@ color:white;
 border:none;
 background-color: inherit;
 
+}
+.nav__dropdown-menu:hover{
+    cursor: pointer;
 }

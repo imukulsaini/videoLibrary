@@ -1,4 +1,4 @@
-import { BiSearch, BiArrowToBottom } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import "./nav.css";
 
@@ -7,6 +7,7 @@ export function NavBar()
     return (
         <>
          <nav className="nav">
+
 
         <div className="nav__logo">
           skateboard
@@ -36,9 +37,9 @@ export function NavBar()
             src="https://pbs.twimg.com/profile_images/1372310949458112512/Isl5HmGT_400x400.jpg"
           />
 
-          <span 
+          {/* <span 
           className="nav__avatar-name"
-         > Mukul </span>
+         > Mukul </span> */}
 
         </div>
     

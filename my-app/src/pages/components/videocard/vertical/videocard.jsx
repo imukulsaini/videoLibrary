@@ -1,10 +1,11 @@
 import ReactPlayer from "react-player";
+import "./videocard.css";
 
 export function VideoCard() {
   return (
     <>
-      <div style={{ color: "white" }} className="video-card">
-        <div className="video-card__player">
+      <div style={{ color: "white" }} className="video-card-v">
+        <div className="video-card-v__player">
           <ReactPlayer
             controls
             playing="true"
@@ -16,27 +17,28 @@ export function VideoCard() {
           />
         </div>
 
-        <div className="video-card__head">
-          <span className="video-card__head-name">Andy william</span>
+        <div className="video-card-v__head">
+          <span className="video-card-v__head-name">Andy william</span>
 
-          <div className="video-card__avatar">
+          <div className="video-card-v__avatar">
             <img
               alt=""
-              className="video-card__head-image"
+              className="video-card-v__head-image"
               src="https://pbs.twimg.com/profile_images/1372310949458112512/Isl5HmGT_400x400.jpg"
             />
           </div>
         </div>
 
-        <span className="video-card__name">
+        <span className="video-card-v__name">
           Basic how to ride your bicycle comfortable Basic how to ride your
           bicycle conformable
         </span>
 
-        <div className="video-card__info">
-          <span className="video-card__views">53k views</span>*
-          <span className="video-card__date">2 weeks ago</span>
+        <div className="video-card-v__info">
+          <span className="video-card-v__views">53k views</span>●
+          <span className="video-card-v__date">2 weeks ago</span>
         </div>
+        
       </div>
     </>
   );

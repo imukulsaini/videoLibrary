@@ -1,0 +1,47 @@
+.videos-v {
+    width: 100%;
+  
+    display: grid;
+  
+    /* grid-template-columns: 4fr; */
+    /* grid-auto-rows: minmax(17rem,9rem); */
+    gap: 1rem;
+  }
+  .videos-v__card {
+    display: flex;
+    width: 100%;
+  }
+  .videos-v__player {
+    height: 8rem;
+    width: 80%;
+  }
+  .react-player-v {
+    width: 100%;
+  }
+  .videos-v__info {
+    width: 100%;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .videos-v__name {
+    font-size: 1rem;
+    color: azure;
+  
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .video-v__channel-name {
+    color: #6d6d7d;
+  }
+  .video-v__views {
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    color: #6d6d7d;
+  }
+  
