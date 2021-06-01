@@ -1,0 +1,51 @@
+.SignIn {
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    max-width: 100%;
+    display: grid;
+  
+    grid-template-rows: 3fr 18fr ;
+    grid-template-areas:
+      "nav"
+      "contentSign"
+  }
+  
+  .contentSign{
+    grid-area:contentSign;
+    display: flex;
+    justify-content: center;
+  }
+  .login-info {
+  width:40%;
+  max-width: 50%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 1px;
+  padding-bottom: 2rem;
+  }
+  .login-head{
+    /* font-size:2rem; */
+    text-align: center;
+  padding-top:2rem;
+  width: 80%;
+  height:6rem;
+  border-bottom:2px solid gray;
+  align-content: center;
+  }
+  .login-fields{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+  align-items: center;
+  }
+  .user-name{
+    padding-right: 1rem;
+  }
+  .login-button button{
+    width: 5rem;
+    font-size: 1rem;
+  }

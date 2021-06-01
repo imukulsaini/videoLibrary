@@ -17,7 +17,9 @@ import {
       <>
         <section className="side-bar">
           <div className="side-bar__menu">
-        <span className="side-bar__menu-name">MENU</span> 
+        <span 
+
+        className="side-bar__menu-name">MENU</span> 
   
             <ul className="side-bar__menu-list">
                 

@@ -1,10 +1,15 @@
 import ReactPlayer from "react-player";
 import "./videocard.css";
+import {useData} from "../../../../context/data/video";
 
 export function VideoCard() {
+    const { state:{videoDataAll}} = useData();
+  console.log("videoDataajsd;jl;asdl;kjasl;kdjl;akjs" , videoDataAll)
   return (
-    <>
-      <div style={{ color: "white" }} className="video-card-v">
+    
+    
+    videoDataAll.map((data)=>{
+     return  <div style={{ color: "white" }} className="video-card-v">
         <div className="video-card-v__player">
           <ReactPlayer
             controls
@@ -12,34 +17,35 @@ export function VideoCard() {
             width="100%"
             height="100%"
             className="react-player-card"
-            url="https://www.youtube.com/watch?v=bEid8tWexKo"
-            light="https://laravelnews.imgix.net/images/airdrop-for-laravel.png"
+            url={`https://www.youtube.com/watch?v=${data.videoId}`}
+            light={data.thumbnail}
           />
         </div>
 
         <div className="video-card-v__head">
-          <span className="video-card-v__head-name">Andy william</span>
+          <span className="video-card-v__head-name">{data.channelName}</span>
 
           <div className="video-card-v__avatar">
             <img
               alt=""
               className="video-card-v__head-image"
-              src="https://pbs.twimg.com/profile_images/1372310949458112512/Isl5HmGT_400x400.jpg"
+              src={data.channelImage}
             />
           </div>
         </div>
 
         <span className="video-card-v__name">
-          Basic how to ride your bicycle comfortable Basic how to ride your
-          bicycle conformable
+         {data.title}
         </span>
 
         <div className="video-card-v__info">
-          <span className="video-card-v__views">53k views</span>●
+          <span className="video-card-v__views">{data.views} K views</span>●
           <span className="video-card-v__date">2 weeks ago</span>
         </div>
         
       </div>
-    </>
+    })
+      
+  
   );
 }

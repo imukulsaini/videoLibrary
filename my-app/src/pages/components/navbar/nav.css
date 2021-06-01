@@ -19,7 +19,9 @@
     margin-left: 2rem;
     color: #fefefe;
 }
-
+.nav__logo:hover{
+cursor: pointer;
+}
 
 .nav__avatar{
 

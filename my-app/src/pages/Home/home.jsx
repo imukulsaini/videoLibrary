@@ -18,14 +18,7 @@ export function Home() {
 
         <div className="video-component">
           <VideoCard />
-          <VideoCard />
-
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
+        
         </div>
       </section>
 

@@ -1,19 +1,21 @@
+import {useNavigate} from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import "./nav.css";
 
 export function NavBar()
 {
+  const navigate = useNavigate();
     return (
         <>
          <nav className="nav">
 
-
-        <div className="nav__logo">
+        <div 
+        onClick={()=>navigate('/')}
+        className="nav__logo">
           skateboard
-          <img src="" alt="" />
+          {/* <img src="" alt="" /> */}
         </div>
-
         <div className="search">
 
           <input
