@@ -25,8 +25,8 @@
     left:0%;
     right: 0%;
     /* left: -1%; */
-    border-top-right-radius: 10%;
-    border-top-left-radius: 10%;
+    border-top-right-radius: 7%;
+    border-top-left-radius: 7%;
     overflow: hidden;
   }
 
@@ -45,14 +45,14 @@
     color:#8c8ea3;
   }
   .video-card-v__avatar{
-    padding: 0.2rem;
+    padding: 0.25rem;
     display: flex;
     justify-content: center;
     background-color:inherit;
     position: absolute;
-    top:48%;
+    top:49%;
     left:70%;
-    border:1.5px solid #84868e;
+    border:1.8px solid #84868e;
     border-radius: 100%;
   }
   .video-card-v__head-image{

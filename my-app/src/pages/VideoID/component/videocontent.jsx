@@ -2,20 +2,21 @@
 import { AiFillLike } from "react-icons/ai";
 import { MdPlaylistAdd } from "react-icons/md";
 
-export function VideoHead()
+export function VideoHead({name,views,likes})
 {
     return (
         
         <>
         <span className="video-content__name">
-Basic how to ride your bicycle comfortable Basic how to ride
-your bicycle conformable
+{name}
 </span>
 
         <div className="video-content__container">
 
             <div className="video-content__info">
-<span className="video-card__views">53k views</span>●
+<span className="video-card__views">
+    {views} views
+    </span>●
 <span className="video-card__date">2 weeks ago</span>
 </div>
 
@@ -24,7 +25,7 @@ your bicycle conformable
                     <li className="video-content__menu-item">
                         <div className="video-content__icon">
                             <AiFillLike className="icon" />
-                            <span className="video-content__icon-name">LIKE</span>
+                            <span className="video-content__icon-name">{likes} </span>
                         </div>
                     </li>
 

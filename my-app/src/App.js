@@ -5,9 +5,12 @@ import './App.css';
 import { Routes,Route } from "react-router-dom";
 import { SignUp} from "./pages/signup/signup"
 import { SignIn } from "./pages/signin/signin";
+import {videoID} from "./pages/VideoID/videoID";
+import {LikedVideo} from "./pages/likedvideo/likedVideo";
 function App() {
 
-
+// const params = useParams();
+// console.log(params);
   return (
     <div className="App">
 
@@ -16,9 +19,12 @@ function App() {
 
     <Routes>
     <Route path="/register" element={<SignUp/>}/>
-    <Route path="/" element={<Home/>}/>
+    <Route exact path="/" element={<LikedVideo/>}/>
     <Route  path="/watch" element={<VideoID/>}/>
-    <Route  path="/login" element={<SignIn/>}/>
+    <Route  exact path="/login" element={<Home/>}/>
+    <Route 
+    
+    path="/watch/:videoId" element={<VideoID/>}/>
     </Routes>
     
     </div>

@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
 
-export function VideoPlayer()
+export function VideoPlayer({videoId})
 {
     return (
         <>
@@ -16,7 +16,7 @@ export function VideoPlayer()
                 height="100%"
                 controls
                 playIcon
-                url="https://www.youtube.com/watch?v=vDYP6AKw8bk"
+                url={`https://www.youtube.com/watch?v=${videoId}`}
               />
             </div>
         </>

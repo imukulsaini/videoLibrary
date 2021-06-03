@@ -1,34 +1,74 @@
-
-
-import {VideoCard} from "../components/videocard/horizontal/videocard";
+import { useEffect, useState } from "react";
+import { VideoCard } from "../components/videocard/horizontal/videocard";
 import { VideoHead } from "./component/videocontent";
 import { ChannelContent } from "./component/channelcontent";
 import { Divider } from "./component/divider";
-import {NavBar} from "../components/navbar/nav";
-import {SideBar} from "../components/sidebar/sidebar";
-import {VideoPlayer} from "./component/player"
-import"./videoID.css"
+import { NavBar } from "../components/navbar/nav";
+import { SideBar } from "../components/sidebar/sidebar";
+import { VideoPlayer } from "./component/player";
+import { useParams } from "react-router-dom";
+
+import { useData } from "../../context/data/video";
+
+import "./videoID.css";
+
 export function VideoID() {
+
+  const [videoById, setVideoById] = useState([]);
+  const [changeSidebar,setSidebarChange] = useState(false)
+  const params = useParams();
+
+  const {
+    state: { videoDataAll },
+  } = useData();
+
+  async function getVideoById() {
+
+    const video = await videoDataAll.find(
+      (data) => data.videoId === params.videoId
+    );
+    if (video) {
+      setVideoById(video);
+
+      setSidebarChange(true);
+
+
+    }
+  }
+getVideoById();
+
   return (
     <>
       <div className="video-id">
         <NavBar />
 
         <section className="sidebar">
-          <SideBar />
+
+          <SideBar 
+          changeSidebar = {changeSidebar}
+          />
+
         </section>
 
-        <section className="main">
+        <section className="main-videoId">
+          
           <div className="video-content">
-            <VideoPlayer />
+            <VideoPlayer videoId={videoById.videoId} />
 
             <div className="video-content__head">
-              <VideoHead />
+              <VideoHead name={videoById.title} views={videoById.views}
+              likes={videoById.likes}
+              />
 
               <div className="divider"></div>
 
               <div className="video-content__channel">
-                <ChannelContent />
+                <ChannelContent
+                  channelImage ={videoById.channelImage}
+                  channelName={videoById.channelName}
+                  channelSubscribers={videoById.channelSubscribers}
+                  Description={videoById.description}
+                />
               </div>
 
               <Divider />
@@ -47,9 +87,7 @@ export function VideoID() {
             <VideoCard />
             <VideoCard />
           </div>
-          
         </section>
-
       </div>
     </>
   );

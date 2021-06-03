@@ -8,17 +8,21 @@ import {
   import { FaBrain, FaTree, FaBook } from "react-icons/fa";
   
   import { GoHeart, GoGlobe } from "react-icons/go";
-  
+
   import "./sidebar.css";
   import {Link } from "react-router-dom"
+  import {Footer } from "../footer/footer"
   
-  export function SideBar() {
+
+  export function SideBar({changeSidebar}) {
+
+
     return (
       <>
         <section className="side-bar">
           <div className="side-bar__menu">
         <span 
-
+          hidden={changeSidebar}
         className="side-bar__menu-name">MENU</span> 
   
             <ul className="side-bar__menu-list">
@@ -28,7 +32,10 @@ import {
                   <MdHome className="home-icon  hv-ic  " />
                 </div>
   
-             <span className="side-bar__item-name hv-itm-nm">Discover</span> 
+             <span
+                       hidden={changeSidebar}
+
+             className="side-bar__item-name hv-itm-nm">Discover</span> 
               </Link>
   
               <Link to="/trending" className="side-bar__menu-items    hv-itm ">
@@ -36,7 +43,10 @@ import {
                   <MdTrendingUp className="home-icon hv-ic " />
                 </div>
   
-                <span className="side-bar__item-name hv-itm-nm ">Trending</span> 
+                <span
+                          hidden={changeSidebar}
+
+                className="side-bar__item-name hv-itm-nm ">Trending</span> 
               </Link>
   
               <Link to="likes" className="side-bar__menu-items   hv-itm">
@@ -44,7 +54,11 @@ import {
                   <GoHeart className="home-icon hv-ic " />
                 </div>
   
-                <span className="side-bar__item-name hv-itm-nm ">
+                <span className="side-bar__item-name hv-itm-nm "
+                          hidden={changeSidebar}
+
+                >
+
                   liked Videos{" "}
                 </span>  
   
@@ -55,7 +69,11 @@ import {
                   <MdWatchLater className="home-icon hv-ic  " />
                 </div>
   
-             <span className="side-bar__item-name hv-itm-nm ">
+             <span className="side-bar__item-name hv-itm-nm "
+                       hidden={changeSidebar}
+
+             >
+
                   Watch later{" "}
                 </span> 
   
@@ -66,7 +84,11 @@ import {
                   <MdFeaturedPlayList className="home-icon hv-ic  " />
                 </div>
   
-               <span className="side-bar__item-name hv-itm-nm ">Playlist</span> 
+               <span className="side-bar__item-name hv-itm-nm "
+                         hidden={changeSidebar}
+
+               
+               >Playlist</span> 
               </Link>
             </ul>
           </div>
@@ -74,7 +96,11 @@ import {
           <div className="divider-s"></div>
   
           <div className="side-bar__menu">
-         <span className="side-bar__menu-name">CATEGORY</span> 
+         <span className="side-bar__menu-name"
+                   hidden={changeSidebar}
+
+         
+         >CATEGORY</span> 
   
             <ul className="side-bar__menu-list">
               <li className="side-bar__menu-items  hv-itm ">
@@ -82,7 +108,11 @@ import {
                   <FaTree className="home-icon hv-ic  " />
                 </div>
   
-              <span className="side-bar__item-name   hv-itm-nm">
+              <span className="side-bar__item-name   hv-itm-nm"
+              
+              hidden={changeSidebar}
+
+              >
                   Environment
                 </span> 
   
@@ -93,7 +123,11 @@ import {
                   <GoGlobe className="home-icon  hv-ic " />
                 </div>
   
-                 <span className="side-bar__item-name hv-itm-nm">History</span> 
+                 <span className="side-bar__item-name hv-itm-nm"
+                           hidden={changeSidebar}
+
+                 
+                 >History</span> 
               </li>
   
               <li className="side-bar__menu-items  hv-itm ">
@@ -101,7 +135,10 @@ import {
                   <FaBrain className="home-icon hv-ic " />
                 </div>
   
-                <span className="side-bar__item-name hv-itm-nm">Psychology </span> 
+                <span className="side-bar__item-name hv-itm-nm"
+                          hidden={changeSidebar}
+
+                >Psychology </span> 
               </li>
   
               <li className="side-bar__menu-items  hv-itm ">
@@ -109,14 +146,28 @@ import {
                   <FaBook className="home-icon hv-ic " />
                 </div>
   
-                <span className="side-bar__item-name hv-itm-nm"> Biography </span> 
+                <span className="side-bar__item-name hv-itm-nm"
+                          hidden={changeSidebar}
+
+                
+                > Biography </span> 
               </li>
             </ul>
           </div>
   
-          <div className="divider-s"></div>
-  
-         <div className="theme-toggle">Night </div> 
+          {/* <div className="divider-s"
+
+          
+          ></div>
+          <Footer/> */}
+
+
+         <div className="theme-toggle"
+                   
+         >
+          Night 
+          {/* // <Footer/> */}
+         </div> 
   
   
         </section>

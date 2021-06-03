@@ -1,12 +1,11 @@
 .home-page {
   background-color: #1f1d2b;
   display: grid;
-  grid-template-rows: 2fr auto 2fr;
+  grid-template-rows: 4rem auto ;
   grid-template-columns: 1.5fr 8.5fr;
   grid-template-areas:
     "nav nav"
     "sidebar  main "
-    " footer footer";
 }
 
 .nav {
