@@ -110,7 +110,10 @@
   }
   .icon {
     color: #808191;
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .icon:hover{
+cursor: pointer;
   }
   .video-content__icon-name {
     font-size: 0.8rem;

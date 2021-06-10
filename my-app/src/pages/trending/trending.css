@@ -1,4 +1,4 @@
-.liked-video{
+.trending-video{
     background-color: #1f1d2b;
     display: grid;
     grid-template-rows: 4rem auto ;
@@ -31,7 +31,8 @@
     flex-direction: column;
     gap: 1rem;
   }
-  .main-likes{
+
+  .main-trend{
     grid-area: main;
     height: auto;
     background-color: #1f1d2b;
@@ -39,6 +40,12 @@
     padding-left: 1rem;
     padding-right: 2rem;
     width: 95%;
-    padding-left: 1rem;
+    padding-left: 2rem;
     padding-right: 2rem;
+    padding-bottom: 5rem;
+  }
+  .trending-video__index{
+    color:white;
+    padding:1rem;
+    align-self:center;
   }

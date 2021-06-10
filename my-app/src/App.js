@@ -5,8 +5,9 @@ import './App.css';
 import { Routes,Route } from "react-router-dom";
 import { SignUp} from "./pages/signup/signup"
 import { SignIn } from "./pages/signin/signin";
-import {videoID} from "./pages/VideoID/videoID";
 import {LikedVideo} from "./pages/likedvideo/likedVideo";
+import {WatchLater} from "./pages/watchLater/watchLater";
+import {Trending} from "./pages/trending/trending";
 function App() {
 
 // const params = useParams();
@@ -19,9 +20,13 @@ function App() {
 
     <Routes>
     <Route path="/register" element={<SignUp/>}/>
-    <Route exact path="/" element={<LikedVideo/>}/>
+    <Route exact path="/" element={<Home/>}/>
+    <Route  exact path="/likes" element={<LikedVideo/>}/>
+
     <Route  path="/watch" element={<VideoID/>}/>
-    <Route  exact path="/login" element={<Home/>}/>
+    <Route path="/watch-later" element={<WatchLater/>}/>
+    <Route path="/trending" element={<Trending/>}/>
+
     <Route 
     
     path="/watch/:videoId" element={<VideoID/>}/>

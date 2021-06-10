@@ -3,7 +3,7 @@
     height:auto;
     display: flex;
     width: 100%;
-    height:7rem;
+    height:auto;
     position :relative;
     /* flex-wrap: wrap; */
     /* border: 5px solid rgb(36, 5, 216); */
@@ -11,29 +11,30 @@
   }
   .videos-h__player {
     /* height: 7.5rem;  */
-    border:1px solid red;
 
     width:17rem  ;
 
   }
   
   .videos-h__info {
-    border:1px solid yellow;
     width: 100%;
-    padding: 0.2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
   .videos-h__name {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: azure;
+    letter-spacing: 0.3px;
   
     width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    padding-bottom: 0rem;
+    
   }
   
   .video-h__channel-name {

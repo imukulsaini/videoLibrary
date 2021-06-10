@@ -2,9 +2,9 @@ import {
     MdHome,
     MdTrendingUp,
     MdWatchLater,
-    MdFeaturedPlayList,
+    MdPlaylistAdd,
   } from "react-icons/md";
-  
+
   import { FaBrain, FaTree, FaBook } from "react-icons/fa";
   
   import { GoHeart, GoGlobe } from "react-icons/go";
@@ -49,7 +49,7 @@ import {
                 className="side-bar__item-name hv-itm-nm ">Trending</span> 
               </Link>
   
-              <Link to="likes" className="side-bar__menu-items   hv-itm">
+              <Link to="/likes" className="side-bar__menu-items   hv-itm">
                 <div className="sidebar__item-icon hv-ic-itm ">
                   <GoHeart className="home-icon hv-ic " />
                 </div>
@@ -81,7 +81,7 @@ import {
   
               <Link to="/playlist" className="side-bar__menu-items   hv-itm ">
                 <div className="sidebar__item-icon hv-ic-itm  ">
-                  <MdFeaturedPlayList className="home-icon hv-ic  " />
+                  <MdPlaylistAdd className="home-icon hv-ic  " />
                 </div>
   
                <span className="side-bar__item-name hv-itm-nm "

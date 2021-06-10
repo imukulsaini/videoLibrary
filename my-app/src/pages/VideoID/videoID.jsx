@@ -13,29 +13,29 @@ import { useData } from "../../context/data/video";
 import "./videoID.css";
 
 export function VideoID() {
-
   const [videoById, setVideoById] = useState([]);
-  const [changeSidebar,setSidebarChange] = useState(false)
+  const [changeSidebar, setSidebarChange] = useState(false);
   const params = useParams();
 
   const {
     state: { videoDataAll },
   } = useData();
 
-  async function getVideoById() {
+  useEffect(() => {
+    setSidebarChange(true);
+  }, []);
 
-    const video = await videoDataAll.find(
-      (data) => data.videoId === params.videoId
-    );
+  const video = videoDataAll.find((data) => data.videoId === params.videoId);
+
+  useEffect(() => {
     if (video) {
       setVideoById(video);
-
-      setSidebarChange(true);
-
-
     }
-  }
-getVideoById();
+  }, [video]);
+  //watch later same page like ed video and in liked video use effect will use direct fetch data from userse
+  //and add watrch later same a wishlist items
+  //playlist is same as cart items
+  
 
   return (
     <>
@@ -43,28 +43,26 @@ getVideoById();
         <NavBar />
 
         <section className="sidebar">
-
-          <SideBar 
-          changeSidebar = {changeSidebar}
-          />
-
+          <SideBar changeSidebar={changeSidebar} />
         </section>
 
         <section className="main-videoId">
-          
           <div className="video-content">
             <VideoPlayer videoId={videoById.videoId} />
 
             <div className="video-content__head">
-              <VideoHead name={videoById.title} views={videoById.views}
-              likes={videoById.likes}
+              <VideoHead
+                name={videoById.title}
+                views={videoById.views}
+                likes={videoById.likes}
+                video={videoById}
               />
 
               <div className="divider"></div>
 
               <div className="video-content__channel">
                 <ChannelContent
-                  channelImage ={videoById.channelImage}
+                  channelImage={videoById.channelImage}
                   channelName={videoById.channelName}
                   channelSubscribers={videoById.channelSubscribers}
                   Description={videoById.description}
@@ -80,12 +78,7 @@ getVideoById();
           <div className="sidebar-r__heading">Related Videos</div>
 
           <div className="videos-v">
-            <VideoCard />
-            <VideoCard />
-            <VideoCard />
-            <VideoCard />
-            <VideoCard />
-            <VideoCard />
+           {/* related Videos */}
           </div>
         </section>
       </div>
