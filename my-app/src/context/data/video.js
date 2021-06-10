@@ -20,7 +20,7 @@ function dataReducer(state, action) {
 
   switch (action.type) {
     case "SET_DATA":
-      return {
+      return {  
         ...state,
         videoDataAll: action.payload,
       };

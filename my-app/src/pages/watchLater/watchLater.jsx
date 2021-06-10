@@ -1,51 +1,22 @@
-import "./watchLater.css";
-import { NavBar } from "../components/navbar/nav";
-import { SideBar } from "../components/sidebar/sidebar";
-import { WatchLaterVideos } from "./components/watchLaterVideos";
-import { useEffect } from "react";
-import { useAuth } from "../../context/data/auth/auth";
-import { useData } from "../../context/data/video";
-import axios from "axios";
+import {useData} from "../../../context/data/video"
+import {VideoCard} from "../../components/videocard/horizontal/videocard";
 
-export function WatchLater() {
-  const { userData,isUserLogin } = useAuth();
-  const { dispatch } = useData();
+export function WatchLaterVideos()
 
-
-  // useEffect(() => {
-  //   console.log( " useEffect Launch ")
-
-  //   if (isUserLogin) {
-
-  //     console.log( " useEffect Launch ")
-
-
-  //     const { watchLater } = userData;
-
-  //     return dispatch({
-  //       type: "INITIALIZE_WATCH_LATER_VIDEO",
-  //       payload: watchLater,
-  //     });
-  //   }
-
+{  
     
-  // },[]);
 
-  console.log("watchLater Videos == " , WatchLaterVideos)
+    const {
+        state: { watchLaterVideos },
+      } = useData();
 
+   console.log("watchLater Videos ===  " ,{watchLaterVideos})
+    return watchLaterVideos.map((video) => {
+        return (
 
-  return (
-    <div className="watchlater-video">
-      <NavBar />
-      <SideBar />
-      <section className="main-watch">
-        <div className="heading">
-          <h2 class="heading-name">Watch - Later</h2>
-        </div>
-        <div className="divider-s"></div>
-
-        <WatchLaterVideos />
-      </section>
-    </div>
-  );
+          <div style={{ width: "90%", border: "1px solid #313339" , position:'relative',marginTop:'2rem', padding:'0rem'}}>
+            <VideoCard video={video} />
+          </div>
+        );
+      })
 }
