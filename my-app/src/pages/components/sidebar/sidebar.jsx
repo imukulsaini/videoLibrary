@@ -1,177 +1,176 @@
 import {
-    MdHome,
-    MdTrendingUp,
-    MdWatchLater,
-    MdPlaylistAdd,
-  } from "react-icons/md";
+  MdHome,
+  MdTrendingUp,
+  MdWatchLater,
+  MdPlaylistAdd,
+} from "react-icons/md";
 
-  import { FaBrain, FaTree, FaBook } from "react-icons/fa";
-  
-  import { GoHeart, GoGlobe } from "react-icons/go";
+import { FaBrain, FaTree, FaBook } from "react-icons/fa";
 
-  import "./sidebar.css";
-  import {Link } from "react-router-dom"
-  import {Footer } from "../footer/footer"
-  
+import { GoHeart, GoGlobe } from "react-icons/go";
 
-  export function SideBar({changeSidebar}) {
+import "./sidebar.css";
+import {Link } from "react-router-dom"
+import {Footer } from "../footer/footer"
 
 
-    return (
-      <>
-        <section className="side-bar">
-          <div className="side-bar__menu">
-        <span 
-          hidden={changeSidebar}
-        className="side-bar__menu-name">MENU</span> 
-  
-            <ul className="side-bar__menu-list">
-                
-              <Link to="/" className="side-bar__menu-items  hv-itm">
-                <div className="sidebar__item-icon hv-ic-itm ">
-                  <MdHome className="home-icon  hv-ic  " />
-                </div>
-  
-             <span
-                       hidden={changeSidebar}
+export function SideBar({changeSidebar}) {
 
-             className="side-bar__item-name hv-itm-nm">Discover</span> 
-              </Link>
-  
-              <Link to="/trending" className="side-bar__menu-items    hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm ">
-                  <MdTrendingUp className="home-icon hv-ic " />
-                </div>
-  
-                <span
-                          hidden={changeSidebar}
 
-                className="side-bar__item-name hv-itm-nm ">Trending</span> 
-              </Link>
-  
-              <Link to="/likes" className="side-bar__menu-items   hv-itm">
-                <div className="sidebar__item-icon hv-ic-itm ">
-                  <GoHeart className="home-icon hv-ic " />
-                </div>
-  
-                <span className="side-bar__item-name hv-itm-nm "
-                          hidden={changeSidebar}
+  return (
+    <>
+      <section className="side-bar">
+        <div className="side-bar__menu">
+      <span 
+        hidden={changeSidebar}
+      className="side-bar__menu-name">MENU</span> 
 
-                >
+          <ul className="side-bar__menu-list">
+              
+            <Link to="/" className="side-bar__menu-items  hv-itm">
+              <div className="sidebar__item-icon hv-ic-itm ">
+                <MdHome className="home-icon  hv-ic  " />
+              </div>
 
-                  liked Videos{" "}
-                </span>  
-  
-              </Link>
-  
-              <Link to="/watch-later" className="side-bar__menu-items   hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm  ">
-                  <MdWatchLater className="home-icon hv-ic  " />
-                </div>
-  
+           <span
+                     hidden={changeSidebar}
+
+           className="side-bar__item-name hv-itm-nm">Discover</span> 
+            </Link>
+
+            <Link to="/trending" className="side-bar__menu-items    hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm ">
+                <MdTrendingUp className="home-icon hv-ic " />
+              </div>
+
+              <span
+                        hidden={changeSidebar}
+
+              className="side-bar__item-name hv-itm-nm ">Trending</span> 
+            </Link>
+
+            <Link to="/likes" className="side-bar__menu-items   hv-itm">
+              <div className="sidebar__item-icon hv-ic-itm ">
+                <GoHeart className="home-icon hv-ic " />
+              </div>
+
+              <span className="side-bar__item-name hv-itm-nm "
+                        hidden={changeSidebar}
+
+              >
+
+                liked Videos{" "}
+              </span>  
+
+            </Link>
+
+            <Link to="/watch-later" className="side-bar__menu-items   hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm  ">
+                <MdWatchLater className="home-icon hv-ic  " />
+              </div>
+
+           <span className="side-bar__item-name hv-itm-nm "
+                     hidden={changeSidebar}
+
+           >
+
+                Watch later{" "}
+              </span> 
+
+            </Link>
+
+            <Link to="/playlist" className="side-bar__menu-items   hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm  ">
+                <MdPlaylistAdd className="home-icon hv-ic  " />
+              </div>
+
              <span className="side-bar__item-name hv-itm-nm "
                        hidden={changeSidebar}
 
-             >
+             
+             >Playlist</span> 
+            </Link>
+          </ul>
+        </div>
 
-                  Watch later{" "}
-                </span> 
-  
-              </Link>
-  
-              <Link to="/playlist" className="side-bar__menu-items   hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm  ">
-                  <MdPlaylistAdd className="home-icon hv-ic  " />
-                </div>
-  
-               <span className="side-bar__item-name hv-itm-nm "
+        <div className="divider-s"></div>
+
+        <div className="side-bar__menu">
+       <span className="side-bar__menu-name"
+                 hidden={changeSidebar}
+
+       
+       >CATEGORY</span> 
+
+          <ul className="side-bar__menu-list">
+            <li className="side-bar__menu-items  hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm  ">
+                <FaTree className="home-icon hv-ic  " />
+              </div>
+
+            <span className="side-bar__item-name   hv-itm-nm"
+            
+            hidden={changeSidebar}
+
+            >
+                Environment
+              </span> 
+
+            </li>
+
+            <li className="side-bar__menu-items hv-itm">
+              <div className="sidebar__item-icon hv-ic-itm  ">
+                <GoGlobe className="home-icon  hv-ic " />
+              </div>
+
+               <span className="side-bar__item-name hv-itm-nm"
                          hidden={changeSidebar}
 
                
-               >Playlist</span> 
-              </Link>
-            </ul>
-          </div>
-  
-          <div className="divider-s"></div>
-  
-          <div className="side-bar__menu">
-         <span className="side-bar__menu-name"
-                   hidden={changeSidebar}
+               >History</span> 
+            </li>
 
-         
-         >CATEGORY</span> 
-  
-            <ul className="side-bar__menu-list">
-              <li className="side-bar__menu-items  hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm  ">
-                  <FaTree className="home-icon hv-ic  " />
-                </div>
-  
-              <span className="side-bar__item-name   hv-itm-nm"
+            <li className="side-bar__menu-items  hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm ">
+                <FaBrain className="home-icon hv-ic " />
+              </div>
+
+              <span className="side-bar__item-name hv-itm-nm"
+                        hidden={changeSidebar}
+
+              >Psychology </span> 
+            </li>
+
+            <li className="side-bar__menu-items  hv-itm ">
+              <div className="sidebar__item-icon hv-ic-itm ">
+                <FaBook className="home-icon hv-ic " />
+              </div>
+
+              <span className="side-bar__item-name hv-itm-nm"
+                        hidden={changeSidebar}
+
               
-              hidden={changeSidebar}
+              > Biography </span> 
+            </li>
+          </ul>
+        </div>
 
-              >
-                  Environment
-                </span> 
-  
-              </li>
-  
-              <li className="side-bar__menu-items hv-itm">
-                <div className="sidebar__item-icon hv-ic-itm  ">
-                  <GoGlobe className="home-icon  hv-ic " />
-                </div>
-  
-                 <span className="side-bar__item-name hv-itm-nm"
-                           hidden={changeSidebar}
+        {/* <div className="divider-s"
 
+        
+        ></div>
+        <Footer/> */}
+
+
+       <div className="theme-toggle"
                  
-                 >History</span> 
-              </li>
-  
-              <li className="side-bar__menu-items  hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm ">
-                  <FaBrain className="home-icon hv-ic " />
-                </div>
-  
-                <span className="side-bar__item-name hv-itm-nm"
-                          hidden={changeSidebar}
-
-                >Psychology </span> 
-              </li>
-  
-              <li className="side-bar__menu-items  hv-itm ">
-                <div className="sidebar__item-icon hv-ic-itm ">
-                  <FaBook className="home-icon hv-ic " />
-                </div>
-  
-                <span className="side-bar__item-name hv-itm-nm"
-                          hidden={changeSidebar}
-
-                
-                > Biography </span> 
-              </li>
-            </ul>
-          </div>
-  
-          {/* <div className="divider-s"
-
-          
-          ></div>
-          <Footer/> */}
+       >
+        Night 
+        {/* // <Footer/> */}
+       </div> 
 
 
-         <div className="theme-toggle"
-                   
-         >
-          Night 
-          {/* // <Footer/> */}
-         </div> 
-  
-  
-        </section>
-      </>
-    );
-  }
-  
+      </section>
+    </>
+  );
+}
