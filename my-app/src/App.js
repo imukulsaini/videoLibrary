@@ -6,7 +6,7 @@ import { Routes,Route } from "react-router-dom";
 import { SignUp} from "./pages/signup/signup"
 import { SignIn } from "./pages/signin/signin";
 import {LikedVideo} from "./pages/likedvideo/likedVideo";
-import {WatchLater} from "./pages/watchLater/watchLater";
+import {WatchLater} from "./pages/watchLater/watchLater"
 import {Trending} from "./pages/trending/trending";
 function App() {
 

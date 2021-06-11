@@ -1,22 +1,33 @@
-import {useData} from "../../../context/data/video"
-import {VideoCard} from "../../components/videocard/horizontal/videocard";
+import "./watchLater.css";
+import { NavBar } from "../components/navbar/nav";
+import { SideBar } from "../components/sidebar/sidebar";
+import { WatchLaterVideos } from "./components/watchLaterVideos";
+import { useEffect } from "react";
+import { useAuth } from "../../context/data/auth/auth";
+import { useData } from "../../context/data/video";
+import axios from "axios";
+export function WatchLater() {
+  const { userData,isUserLogin } = useAuth();
+  const { dispatch } = useData();
 
-export function WatchLaterVideos()
+  const {
+    state: { watchLaterVideos },
+  } = useData();
 
-{  
-    
+  return (
+    <div className="watchlater-video">
+      <NavBar />
+      <SideBar />
+      <section className="main-watch">
+        <div className="heading">
+          <h2 class="heading-name">Watch - Later</h2>
+        </div>
+        <div className="divider-s"></div>
 
-    const {
-        state: { watchLaterVideos },
-      } = useData();
+        <WatchLaterVideos />
 
-   console.log("watchLater Videos ===  " ,{watchLaterVideos})
-    return watchLaterVideos.map((video) => {
-        return (
-
-          <div style={{ width: "90%", border: "1px solid #313339" , position:'relative',marginTop:'2rem', padding:'0rem'}}>
-            <VideoCard video={video} />
-          </div>
-        );
-      })
+      </section>
+    </div>
+  );
 }
+   
