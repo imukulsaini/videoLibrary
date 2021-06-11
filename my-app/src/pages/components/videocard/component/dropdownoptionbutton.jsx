@@ -13,31 +13,37 @@ export function DropDownOptionButton({videoId,children})
 
     async function removeWatchLaterVideoFromServer(userID, token,videoID)
     {
-      console.log({userID, token,videoID})
-
+      console.log({videoId , userID ,token})
       const url =
-      `https://video-library-2.mukulsaini02.repl.co/v1/${userID}/watch-later`;
-    
-      const response = await axios.delete(url , 
-      {
-        headers:{
-          authorization:token
-        }
-      },
-      {Body:{
-        "videoId":videoID
-      }} 
-      
-      )
+      "https://video-library-2.mukulsaini02.repl.co/v1/60b5aaea343f5500f35faf47/watch-later";
+
+  
+  const response = await axios.delete(url ,{
+  headers:{
+    authorization:token
+  },
+  data:{
+    videoId:videoID
+  }
+}  )
 
     if (response.status === 200) {
-      return response.data.user.watchLater;
+
+      return response
     }
+
+
+
+
     }
+
+
+
   async function removeFromWatchLater(userID, token,videoID)
   { 
+  
     const response = await removeWatchLaterVideoFromServer(userID, token,videoID)
-
+    console.log("lllllll" , response)
     if (response) {
       dispatch({
         type: "REMOVE_WATCH_LATER_VIDEO",
