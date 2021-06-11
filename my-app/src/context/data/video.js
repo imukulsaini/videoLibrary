@@ -39,6 +39,12 @@ function dataReducer(state, action) {
         ...state,
         watchLaterVideos: [...state.watchLaterVideos, action.payload],
       };
+      case "REMOVE_WATCH_LATER_VIDEO":
+        return {
+          ...state,
+          watchLaterVideos: action.payload,
+        };
+
     default:
       return state;
   }
