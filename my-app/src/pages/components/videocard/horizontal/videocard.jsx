@@ -30,7 +30,8 @@ export function VideoCard({ video ,children }) {
           <span className="video-h__views">{views} views ● 10 months ago</span>
         </div>
 
-        <DropDownOptionButton  videoId={videoId}>
+        <DropDownOptionButton>
+          {children}
         </DropDownOptionButton>
       </div>
     </>

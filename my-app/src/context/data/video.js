@@ -42,7 +42,7 @@ function dataReducer(state, action) {
       case "REMOVE_WATCH_LATER_VIDEO":
         return {
           ...state,
-          watchLaterVideos: action.payload,
+          watchLaterVideos: state.watchLaterVideos.filter((video)=> video._id !== action.payload._id),
         };
 
     default:

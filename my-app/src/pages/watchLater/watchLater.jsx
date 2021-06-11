@@ -3,9 +3,6 @@ import { NavBar } from "../components/navbar/nav";
 import { SideBar } from "../components/sidebar/sidebar";
 import { WatchLaterVideos } from "./components/watchLaterVideos";
 export function WatchLater() {
-
-  
-
   return (
     <div className="watchlater-video">
       <NavBar />
@@ -17,9 +14,7 @@ export function WatchLater() {
         <div className="divider-s"></div>
 
         <WatchLaterVideos />
-
       </section>
     </div>
   );
 }
-   
