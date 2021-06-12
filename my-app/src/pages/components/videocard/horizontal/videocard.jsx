@@ -3,8 +3,7 @@ import "./videocard.css";
 
 import { DropDownOptionButton } from "../component/dropdownoptionbutton";
 
-export function VideoCard({ video ,children }) {
-  
+export function VideoCard({ video, children }) {
   const { thumbnail, videoId, channelName, views, title } = video;
 
   return (
@@ -30,9 +29,7 @@ export function VideoCard({ video ,children }) {
           <span className="video-h__views">{views} views ● 10 months ago</span>
         </div>
 
-        <DropDownOptionButton>
-          {children}
-        </DropDownOptionButton>
+        <DropDownOptionButton>{children}</DropDownOptionButton>
       </div>
     </>
   );

@@ -2,32 +2,29 @@ import { createContext, useReducer, useEffect, useContext } from "react";
 import axios from "axios";
 import { useAuth } from "./auth/auth";
 
-
-
-// async function addWatchLaterVideo (watchLaterVideos , payload)
-// {
-  
-//   const url = "https://video-library-2.mukulsaini02.repl.co/v1/60b5aaea343f5500f35faf47/watch-later";
-
-//   const response = await axios.post(url , {
-//     headers:
-//   })
-// }
-
-
 function dataReducer(state, action) {
-
-
   switch (action.type) {
     case "SET_DATA":
-      return {  
+      return {
         ...state,
         videoDataAll: action.payload,
+      };
+    case "INITIALIZE_LIKED_VIDEO":
+      return {
+        ...state,
+        likedVideos: action.payload,
       };
     case "ADD_TO_LIKED_VIDEO":
       return {
         ...state,
         likedVideos: [...state.likedVideos, action.payload],
+      };
+    case "REMOVE_LIKED_VIDEO":
+      return {
+        ...state,
+        likedVideos: state.likedVideos.filter(
+          (video) => video._id !== action.payload._id
+        ),
       };
     case "INITIALIZE_WATCH_LATER_VIDEO":
       return {
@@ -39,16 +36,17 @@ function dataReducer(state, action) {
         ...state,
         watchLaterVideos: [...state.watchLaterVideos, action.payload],
       };
-      case "REMOVE_WATCH_LATER_VIDEO":
-        return {
-          ...state,
-          watchLaterVideos: state.watchLaterVideos.filter((video)=> video._id !== action.payload._id),
-        };
+    case "REMOVE_WATCH_LATER_VIDEO":
+      return {
+        ...state,
+        watchLaterVideos: state.watchLaterVideos.filter(
+          (video) => video._id !== action.payload._id
+        ),
+      };
 
     default:
       return state;
   }
-
 }
 
 const dataContext = createContext();
@@ -60,19 +58,16 @@ const initialState = {
 };
 
 export function initializeUserData(userData, dispatch) {
-
-  if(userData)
-  {
+  if (userData) {
     dispatch({
       type: "INITIALIZE_WATCH_LATER_VIDEO",
       payload: userData.watchLater,
     });
-
+    dispatch({
+      type: "INITIALIZE_LIKED_VIDEO",
+      payload: userData.likedVideo,
+    });
   }
- 
-
-
-
 }
 
 export function DataProvider({ children }) {
@@ -81,13 +76,10 @@ export function DataProvider({ children }) {
   const { userData, isUserLogin } = useAuth();
 
   useEffect(() => {
-    if(isUserLogin)
-    {
+    if (isUserLogin) {
       initializeUserData(userData, dispatch);
     }
-    
   }, [isUserLogin]);
-
 
   useEffect(() => {
     (async () => {

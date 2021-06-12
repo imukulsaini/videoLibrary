@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { MdWatchLater, MdPlaylistAdd } from "react-icons/md";
+import { MdPlaylistAdd } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
-
 
 export function DropDownOptionButton({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +26,8 @@ export function DropDownOptionButton({ children }) {
             <button className="dropdown-option__btn">Save to Playlist</button>
           </div>
 
-           {children}
-
+          {children}
+          
         </div>
       )}
     </div>
