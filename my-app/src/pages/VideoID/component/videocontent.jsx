@@ -16,9 +16,10 @@ export function VideoHead({ name, views, likes, video }) {
   const { _id: id } = video;
 
   const checkVideoInWatchLater = watchLaterVideos.find(
-    (video) => video._id === id );
+    (video) => video._id === id
+  );
 
-    const checkVideoInLiked = likedVideos.find((video)=>video._id === id );
+  const checkVideoInLiked = likedVideos.find((video) => video._id === id);
 
   async function addToWatchLaterVideoInServer(userID, token, videoID) {
     const url = `https://video-library-2.mukulsaini02.repl.co/v1/${userID}/watch-later`;
@@ -38,7 +39,6 @@ export function VideoHead({ name, views, likes, video }) {
     }
   }
 
-
   async function addToWatchLaterVideos(userID, token, videoID) {
     const response = await addToWatchLaterVideoInServer(userID, token, videoID);
 
@@ -51,8 +51,7 @@ export function VideoHead({ name, views, likes, video }) {
   }
 
   async function addToLikeInServer(userID, token, videoID) {
-
-   const url = `https://video-library-2.mukulsaini02.repl.co/v1/${userID}/likes`;
+    const url = `https://video-library-2.mukulsaini02.repl.co/v1/${userID}/likes`;
     const headers = {
       authorization: token,
     };
@@ -70,19 +69,16 @@ export function VideoHead({ name, views, likes, video }) {
     }
   }
 
+  async function addToLikedVideo(userID, token, videoID) {
+    const response = await addToLikeInServer(userID, token, videoID);
 
-async function addToLikedVideo(userID, token, videoID)
-{
-  const response = await addToLikeInServer(userID, token, videoID);
-
-  if (response) {
-    dispatch({
-      type: "ADD_TO_LIKED_VIDEO",
-      payload: response,
-    });
+    if (response) {
+      dispatch({
+        type: "ADD_TO_LIKED_VIDEO",
+        payload: response,
+      });
+    }
   }
-}
-
 
   return (
     <>
@@ -97,51 +93,37 @@ async function addToLikedVideo(userID, token, videoID)
         <div className="video-content__menu">
           <ul className="video-content__menu-list">
             <li className="video-content__menu-item">
-            { 
-            checkVideoInLiked ?  (<div 
-            onClick={()=>console.log("remove like vala")}
-            className="video-content__icon">
-            <AiFillHeart 
-             style={{ color: "white" }}
-            className="icon" />
+              {checkVideoInLiked ? (
+                <div className="video-content__icon">
+                  <AiFillHeart style={{ color: "#fc7551" }} className="icon" />
 
-            <span className="video-content__icon-name">{likes} </span>
-          </div>):(
+                  <span className="video-content__icon-name">{likes} </span>
+                </div>
+              ) : (
+                <div
+                  onClick={() =>
+                    addToLikedVideo(userData._id, token, video._id)
+                  }
+                  className="video-content__icon"
+                >
+                  <AiFillHeart className="icon" />
 
-
-            <div 
-            onClick={()=>addToLikedVideo(userData._id, token, video._id) }
-
-            className="video-content__icon">
-            <AiFillHeart className="icon" />
-
-            <span className="video-content__icon-name">{likes} </span>
-          </div>
-          )
-            }
-             
-
-
+                  <span className="video-content__icon-name">{likes} </span>
+                </div>
+              )}
             </li>
 
-
-
             <li className="video-content__menu-item">
-
               <div className="video-content__icon">
-              <MdPlaylistAdd className="icon" />
-              <span className="video-content__icon-name">SAVE</span>
-            </div>
-           
-             
-
-
+                <MdPlaylistAdd className="icon" />
+                <span className="video-content__icon-name">SAVE</span>
+              </div>
             </li>
 
             <li className="video-content__menu-item">
               {checkVideoInWatchLater ? (
                 <div className="video-content__icon">
-                  <MdWatchLater style={{ color: "white" }} className="icon" />
+                  <MdWatchLater style={{ color: "#fc7551" }} className="icon" />
 
                   <span className="video-content__icon-name"> Added </span>
                 </div>

@@ -32,7 +32,6 @@ export function VideoID() {
       setVideoById(video);
     }
   }, [video]);
- 
 
   return (
     <>
@@ -71,13 +70,11 @@ export function VideoID() {
           </div>
         </section>
 
-        <section className="sidebar-r">
+        {/* <section className="sidebar-r">
           <div className="sidebar-r__heading">Related Videos</div>
 
-          <div className="videos-v">
-           {/* related Videos */}
-          </div>
-        </section>
+          <div className="videos-v">related Videos</div>
+        </section> */}
       </div>
     </>
   );
