@@ -1,51 +1,90 @@
-.SignIn {
+.sign-in{
+
   width: 100%;
   height: 100vh;
-  max-height: 100%;
-  max-width: 100%;
   display: grid;
-
-  grid-template-rows: 3fr 18fr ;
-  grid-template-areas:
-    "nav"
-    "contentSign"
+  grid-template-rows: 4rem auto;
+  grid-template-areas: 
+  "nav"
+  "main"
+  
+  ;
+background-color: #1f1d2b;
 }
 
-.contentSign{
-  grid-area:contentSign;
-  display: flex;
-  justify-content: center;
+.sign-in__main{
+  grid-area: main;
+  width: 100%;
 }
-.login-info {
-width:40%;
-max-width: 50%;
-height:100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-letter-spacing: 1px;
-padding-bottom: 2rem;
+.sign-in__main{
+  display: grid;
+  grid-template-rows: 6rem auto;
+  gap:4rem;
+  
 }
-.login-head{
-  /* font-size:2rem; */
+.sign-in__main-header{
+  color:#fefefe;
+  padding: 1rem;
+  width: 100%;
   text-align: center;
-padding-top:2rem;
-width: 80%;
-height:6rem;
-border-bottom:2px solid gray;
-align-content: center;
 }
-.login-fields{
-  padding-top: 2rem;
+.sign-in__header-name{
+font-size: 2.5rem;
+font-weight: 600;
+letter-spacing: 1px;
+}
+.sign-in__form{
   display: flex;
   flex-direction: column;
-  gap:2rem;
-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
-.user-name{
-  padding-right: 1rem;
+.sign-in__form-info{
+  width: 35%;
+
 }
-.login-button button{
-  width: 5rem;
-  font-size: 1rem;
+.flx-cl{
+  display: flex;
+  flex-direction: column;
+  gap:.5rem;
+}
+.gp-1{
+  gap:1rem;
+}
+
+.input-info{
+  padding-left: .5rem;
+  width: auto;
+  height:2.1rem;
+  background-color: #353340;
+  border: none;
+  color:#61606f;
+  
+}
+.lbl-fm{
+  color:#fefefe;
+  padding-left: .5rem;
+  letter-spacing: 1px;
+}
+.btn-form{
+    width: 6rem;
+    height: 2rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    background-color: inherit;
+    border: 1px solid #fc7551;
+    color:#fc7551;
+
+  }
+.fcs-btn{
+  background-color: #fc7551;
+  color:black;
+  border: none;
+}
+.sign-in__button-info{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  flex-wrap: wrap;
 }

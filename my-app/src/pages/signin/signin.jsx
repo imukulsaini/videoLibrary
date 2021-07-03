@@ -13,53 +13,53 @@ export function SignIn() {
     navigate("/register");
   }
 
-
-//   async function loginHandler() {
-//     await userCredentialsCheck(username);
-
-//     navigate(state?.from ? state.from : "/");
-//   }
-
   return (
-    <>
-      <div className="SignIn">
-        <NavBar />
+    <div className="sign-in">
+      <NavBar />
 
-        <div className="contentSign">
-          <div className="login-info">
-            <div className="login-head">
-              <h2> Login</h2>
-            </div>
-
-            <div className="login-fields">
-              <div className="login-username">
-                <div>User name</div>
-                <input
-                  id="username"
-                  onChange={(e) => setUsername(e.target.value)}
-                  type="text"
-                ></input>
-              </div>
-
-              <div className="login-password">
-                <div>password</div>
-                <input id="password" type="password"></input>
-              </div>
-
-              <div className="login-button">
-                <button >Login</button>
-              </div>
-              <small>or</small>
-              <div className="sign sign-up-button">
-                <button type="button" onClick={routeChangeHandler}>
-                  create an account
-                </button>
-              </div>
-            </div>
-          </div>
+      <section className="sign-in__main">
+        <div className="sign-in__main-header">
+          <h2 className="sign-in__header-name">Login</h2>
         </div>
+        <div className="sign-in__form">
+          <form className="sign-in__form-info flx-cl gp-1">
+            <div className="username-info flx-cl">
+              <label htmlFor="username" className="username-label lbl-fm">
+                username
+              </label>
+              <input
+                placeholder="user name"
+                className="input-info"
+                type="text"
+                id="login-username"
+              />{" "}
+            </div>
 
-      </div>
-    </>
+            <div className="password-info flx-cl">
+              <label htmlFor="password" className="password-label lbl-fm">
+                password
+              </label>
+              <input
+                placeholder="password "
+                className="input-info"
+                type="password"
+                id="login-password"
+              />{" "}
+            </div>
+
+            <div className="sign-in__button-info">
+              <button type="submit" className="sign-in-button btn-form fcs-btn">
+                Sign In
+              </button>
+              <button type="submit" className="sign-up-button btn-form ">
+                Sign Up
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
   );
 }
+
+
