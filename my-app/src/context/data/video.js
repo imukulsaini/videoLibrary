@@ -36,6 +36,11 @@ function dataReducer(state, action) {
         ...state,
         watchLaterVideos: [...state.watchLaterVideos, action.payload],
       };
+      case 'ini':
+        return{
+          ...state ,
+          abc : action.payload
+        }
     case "REMOVE_WATCH_LATER_VIDEO":
       return {
         ...state,
@@ -85,7 +90,7 @@ export function DataProvider({ children }) {
     (async () => {
       try {
         const response = await axios.get(
-          "https://video-library-2.mukulsaini02.repl.co/videos"
+          "https://ecommerceBacked.imukulsaini.repl.co/videos"
         );
 
         dispatch({
