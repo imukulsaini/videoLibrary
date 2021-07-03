@@ -1,129 +1,126 @@
 import { NavBar } from "../components/navbar/nav";
-import { Link } from "react-router-dom";
-import {Footer} from "../components/footer/footer";
+import { useNavigate } from "react-router";
+import './signup.css'
 import { useState } from "react";
-import {ReactComponent as VideoPlay} from "../../svg/videoPlay.svg";
-// import { useNavigate, useLocation } from "react-router-dom";
-import "./signup.css";
-export function SignUp() {
+export function SignUp(){
 
-
-//   const navigate = useNavigate();
-
-  const [password, setPassWord] = useState(null);
-  const [cpassword, setCpassWord] = useState(null);
-  const [firstname, setFirstName] = useState(null);
-  const [lastname, setLastName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [username, setUsername] = useState(null);
-  const [show, setShow] = useState(false);
-
-//   async function createAccount() {
-//     (await username) !== null &&
-//       createUserAccount(
-//         firstname,
-//         lastname,
-//         username,
-//         email,
-//         password,
-//         cpassword
-//       );
-//     navigate("/");
-//   }
-
-//   function passwordHandler(event) {
-//     setPassWord(event.target.value);
-//   }
-
-//   function cpasswordHandler(event) {
-//     const cpassword = event.target.value;
-//     setCpassWord(cpassword);
-//   }
+  const navigate = useNavigate();
+  
 
   return (
-    <div className="SignUp">
+    <div className='sign-up'>
+    <section
+    className='sign-up__left'
+    >Left</section>
+    <section className='sign-up__right'>
+
       <NavBar/>
-      <div 
-      className="imagea">
-    <VideoPlay
-          style={{width:'100%', objectFit:'contain'}}
-    />
+
+
+      <section className='sign-up__main'>
+
+      <div className="sign-up__main-header">
+      <h2 className="sign-up__header-name">Create an account </h2>
       </div>
-      <div className="contentSign">
-        <div className="login-info">
-          <div className="login-head">
-            <h2> Create An Account </h2>
-          </div>
 
-          <div className="login-fields">
-            <div className="sign-up-fname">
-              <div>First Name</div>
+
+      <div className="sign-up__form">
+          <form className="sign-up__form-info flx-cl gp-1">
+
+            <div className='sign-up__user-info '>
+
+            <div className="first-info flx-cl">
+
+              <label htmlFor="firstName" className="first-name-label lbl-fm">
+                First Name
+              </label>
               <input
-                // onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First Name "
+                className="input-info"
                 type="text"
-              ></input>
+                id="sign-up__first-name"
+              />
             </div>
 
-            <div className="sign-up-lname">
-              <div>Last Name</div>
+            <div className="last-info flx-cl">
+              <label htmlFor="last-name" className="last-name-label lbl-fm">
+                Last Name
+              </label>
               <input
-                // onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last Name"
+                className="input-info"
                 type="text"
-              ></input>
+                id="login-username"
+              />{" "}
             </div>
 
-            <div className="sign-up-username">
-              <div>User name</div>
-              <input
-                // onChange={(e) => setUsername(e.target.value)}
-                type="text"
-              ></input>
             </div>
 
-            <div className="sign-up-email">
-              <div>email</div>
+
+
+
+            
+            <div className="username-info flx-cl">
+              <label htmlFor="username" className="username-label lbl-fm">
+                Username
+              </label>
               <input
-                // onChange={(e) => setEmail(e.target.value)}
+                placeholder="user name"
+                className="input-info"
+                type="text"
+                id="login-username"
+              />{" "}
+            </div>
+
+              <div className="username-info flx-cl">
+              <label htmlFor="email" className="email-label lbl-fm">
+                Email
+              </label>
+              <input
+                placeholder="john@abc.com"
+                className="input-info"
                 type="email"
-              ></input>
+                id="login-username"
+              />{" "}
             </div>
 
-            <div className="sign-up-password">
-              <div>password</div>
+            <div className="password-info flx-cl">
+              <label htmlFor="password" className="password-label lbl-fm">
+                password
+              </label>
               <input
-                type={show ? "text" : "password"}
-                // onChange={passwordHandler}
-              ></input>
-              <input
-                onClick={() => {
-                  setShow(!show);
-                }}
-                type="checkbox"
-              ></input>
+                placeholder="password "
+                className="input-info"
+                type="password"
+                id="login-password"
+              />
             </div>
-
-            <div className="sign-up-cpassword">
-              <div>confirm password</div>
+            <div className="c-password-info flx-cl">
+              <label htmlFor="c-password" className="c-password-label lbl-fm">
+                password
+              </label>
               <input
-                style={{ margin: "5px" }}
-                type={show ? "text" : "password"}
-                // onChange={cpasswordHandler}
-              ></input>
-              <input
-                onClick={() => {
-                //   setShow(!show);
-                }}
-                type="checkbox"
-              ></input>
+                placeholder="confirm password "
+                className="input-info"
+                type="password"
+                id="login-c-password"
+              />
             </div>
-
-            <div className="sign sign-up-button">
-              <button>create an account </button>
+            <div className="sign-up__button-info">
+            <button type="submit" className="sign-up-button btn-form fcs-btn">
+                Sign Up
+              </button>
+              <button type="submit" className="sign-in-button btn-form ">
+                Sign In
+              </button>
+             
             </div>
-          </div>
+          </form>
         </div>
-      </div>
 
+
+      </section>
+    </section>
     </div>
-  );
+  )
 }
