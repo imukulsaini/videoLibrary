@@ -1,14 +1,13 @@
-import { useData } from "../../../context/data/video";
+import { useEffect } from "react";
+import { useData } from "../../../context/video/video";
 import { VideoCard } from "../../components/videocard/horizontal/videocard";
 import { LikedVideoRemoveButton } from "./LikedVideoRemoveButton";
-import { useAuth } from "../../../context/data/auth/auth";
+import { useAuth } from "../../../context/auth/auth";
+import { useLike } from "../../../context/likeVideo/likeVideo";
+import axios from "axios";
+export function LikedVideos ({likedVideos, userData, token})
 
-export function LikedVideos ()
-{
-    const {state:{ likedVideos } } = useData();
-    const {userData , token } = useAuth();
-    console.log("....." , {likedVideos})
-    return likedVideos.map((video) => {
+{        return likedVideos.map((video) => {
         return (
           <div
             style={{
@@ -29,4 +28,5 @@ export function LikedVideos ()
           </div>
         );
       });
+      
 }

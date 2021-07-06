@@ -1,12 +1,14 @@
 import ReactPlayer from "react-player";
 import "./videocard.css";
-import { useData } from "../../../../context/data/video";
+import {useData}from "../../../../context/video/video"
 import { Link } from "react-router-dom";
 
 export function VideoCard() {
   const {
     state: { videoDataAll },
   } = useData();
+
+  console.log({videoDataAll})
 
   return videoDataAll.map((data) => {
     return (

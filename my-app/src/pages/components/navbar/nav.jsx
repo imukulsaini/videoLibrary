@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
-import { useAuth } from "../../../context/data/auth/auth";
+import { useAuth } from "../../../context/auth/auth";
 
 import "./nav.css";
 

@@ -1,6 +1,6 @@
  import { AiFillHeart } from "react-icons/ai";
 import axios from "axios";
-import { useData } from "../../../context/data/video";
+import { useData } from "../../../context/video/video";
 
 export function LikedVideoRemoveButton({userData, token, video }){
 
