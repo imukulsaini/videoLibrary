@@ -2,7 +2,7 @@ import "./trending.css";
 import { NavBar } from "../components/navbar/nav";
 import { SideBar } from "../components/sidebar/sidebar";
 import { useEffect, useState } from "react";
-import { useData } from "../../context/data/video";
+import { useData } from "../../context/video/video";
 import { VideoCard } from "../components/videocard/horizontal/videocard";
 export function Trending() {
   const {
