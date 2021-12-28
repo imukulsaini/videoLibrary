@@ -1,0 +1,25 @@
+.category{
+    width: 100%;
+    display: grid;
+    height:100vh;
+    grid-template-rows: 4.5rem auto;
+    grid-template-columns: 1.5fr 8fr;
+    grid-template-areas: 
+    "nav nav"
+    "sidebar categoryMain"
+    ;
+}
+.nav{
+    grid-area: nav;
+
+}
+.side-bar{
+    height: 100%;
+
+    grid-area: sidebar;
+}
+.category__main{
+    grid-area: categoryMain;
+    background-color: #1f1d2b;
+
+}
