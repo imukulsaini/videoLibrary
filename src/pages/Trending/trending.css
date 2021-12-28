@@ -1,0 +1,36 @@
+.trending-page {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 4.5rem auto;
+  grid-template-columns: 1.5fr 8fr;
+  grid-template-areas:
+    "nav nav"
+    "sidebar main";
+}
+.nav {
+  grid-area: nav;
+}
+.side-bar {
+  grid-area: sidebar;
+}
+
+.trending__main {
+  grid-area: main;
+  background-color: #1f1d2b;
+  padding-bottom: 5rem;
+
+}
+.trending__videos {
+  width: 90%;
+  border: 1px solid #313339;
+  position: relative;
+  margin-top: 2rem;
+  padding: 0rem;
+  display: flex;
+}
+.trending-video__index {
+  color: white;
+  padding: 1.5rem;
+  align-self: center;
+}
