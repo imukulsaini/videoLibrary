@@ -1,0 +1,150 @@
+.nav {
+  background-color: #1f1d2b;
+  width: 100%;
+  height: 4.5rem;
+}
+.nav__container {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+}
+.nav__main {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+.nav__logo-action {
+  display: flex;
+  gap: 0.7rem;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  text-decoration: none;
+}
+.brand__logo {
+  color: blue;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.brand__name {
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  color: white;
+  align-self: center;
+}
+
+.nav__search {
+  width: 45%;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.search__input {
+  color: #ffffff;
+
+  padding-left: 1rem;
+  width: 100%;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  height: 2rem;
+  background-color: inherit;
+  border: #353340;
+  background-color: #353340;
+}
+
+.search__button {
+  cursor: pointer;
+  height: 2rem;
+  font-size: 1.2rem;
+  padding-top: 0.3rem;
+  border: none;
+  width: 2rem;
+  background-color: inherit;
+  color: #9292a1;
+}
+.nav__account {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nav__login {
+  font-size: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid #fc7551;
+  padding: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.nav__icon:hover {
+  cursor: pointer;
+}
+.account__icon {
+  color: #fc7551;
+  font-size: 1.3rem;
+}
+.nav__icon-name {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #fc7551;
+}
+
+.nav__user {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.nav__user-name {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+.nav__dropdown-btn {
+  cursor: pointer;
+  padding-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #fc7551;
+  background-color: inherit;
+  border: none;
+}
+
+.nav__dropdown-option {
+  right: 1%;
+  position: absolute;
+  background-color: #353340;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 3.7rem;
+  width: 15rem;
+  height: 7rem;
+  border-radius: 8px;
+}
+.nav__dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+.nav__dropdown-item {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  width: 100%;
+  height: 3.5rem;
+  cursor: pointer;
+  padding-left: 1.5rem;
+}
+
+.dropdown__item-icon {
+  font-size: 1.3rem;
+}
+.dropdown__item-name {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
