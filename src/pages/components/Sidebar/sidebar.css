@@ -1,0 +1,78 @@
+.side-bar {
+  height: 100%;
+  background-color: #1f1d2b;
+  border-right: 1.5px solid #313339;
+}
+.side-bar__menu-options {
+  padding-left: 1rem;
+}
+.side-bar__menu-options-two {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-bar__menu-name {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #4b4a59;
+}
+.side-bar__menu-items {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+}
+.active{
+  background-color: #ff7551;
+  color: #ffffff;
+
+}
+.side-bar__menu-list {
+  padding-top: 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.sidebar__item-icon {
+  width: 2rem;
+  border-radius: 30%;
+
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #353340;
+}
+
+.home-icon {
+  color: #808191;
+  font-size: 1.1rem;
+
+  cursor: pointer;
+}
+
+.side-bar__item-name {
+  align-self: center;
+  font-size: 0.9rem;
+  color: #6f707f;
+  letter-spacing: 0.5px;
+}
+
+/* Hover sidebar */
+
+.hv-itm:hover {
+  color: white;
+}
+
+.hv-itm:hover .hv-ic-itm {
+  background-color: #ff7551;
+}
+
+.hv-itm:hover .hv-ic {
+  color: white;
+}
+.hv-itm:hover .hv-itm-nm {
+  color: white;
+}
