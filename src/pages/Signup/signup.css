@@ -1,0 +1,107 @@
+.sign-up {
+  width: 100%;
+  background-color: #1f1d2b;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+  grid-template-rows: 4.5rem auto;
+  grid-template-areas:
+    "nav nav nav"
+    "left main right";
+}
+.nav {
+  grid-area: nav;
+}
+.sign-up__right {
+  grid-area: right;
+  background-color: #1f1d2b;
+}
+.sign-up__left {
+  grid-area: left;
+  background-color: #1f1d2b;
+}
+.sign-up__main {
+  /* padding-top: 1rem; */
+  background-color: #252836;
+  border-radius: 8px;
+  color: #ffffff;
+  width: 35rem;
+  grid-area: main;
+  display: grid;
+}
+.sign-up__form {
+  padding-bottom: 1rem;
+  height: fit-content;
+  width: 100%;
+  padding-left: 2rem;
+}
+.sign-up__main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.sign-in__header-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.sign-up__logo {
+  width: 3rem;
+  height: 3rem;
+}
+.sign-up__form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sign-up__name {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sign-up-button {
+  width: fit-content;
+  padding: 0.7rem;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  align-self: center;
+  background-color: #fc7551;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.sign-up__error {
+  color: red;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.login__action {
+  text-align: center;
+}
+.login__action-choice {
+  margin-top: 0.4rem;
+  color: #353340;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.login__route-info {
+  font-size: 0.9rem;
+  color: #52545b;
+}
+.login__route {
+  padding-left: 1rem;
+  cursor: pointer;
+  color: #fc7551;
+}
