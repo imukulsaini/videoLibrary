@@ -140,7 +140,7 @@ export function VideoHead({
               <div className="videoHead__icon">
                 <MdPlaylistAdd
                   size="1.5rem"
-                  onClick={()=> isUserLogin && playlistModalOpen}
+                  onClick={()=> isUserLogin && playlistModalOpen()}
                   className="icon"
                 />
                 <span className="videoHead__icon-name">SAVE</span>
