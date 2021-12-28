@@ -1,0 +1,86 @@
+.playlist{
+    width: 100%;
+    display: grid;
+    height:100vh;
+    grid-template-rows: 4.5rem auto;
+    grid-template-columns: 1.5fr 8fr;
+    grid-template-areas: 
+    "nav nav"
+    "sidebar playlistMain"
+    ;
+  }
+  .nav{
+    grid-area: nav;
+  }
+  
+  .side-bar{
+    grid-area: sidebar;
+  
+  }
+
+  .playlist__name-lists{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    padding: 2rem;
+  
+  }
+  .playlist__name-info{
+    border:1px solid black;
+    display: flex;
+    justify-content: space-between;
+   
+    border-radius: 7px;
+  }
+  .playlist__name-contain{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+  }
+  .playlist__main{
+    grid-area:playlistMain;
+    background-color: #1f1d2b;
+
+  }
+  
+  .playlist__main-name{
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+  }
+  .playlist__name-action{
+    font-size: .7rem;
+    letter-spacing: 1px;
+    color:#888a9f;
+  }
+  .playlist-remove__btn{
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+    padding: .3rem;
+    font-size: 1.3rem;
+    
+    /* border:1px solid red; */
+  }
+
+
+/* Playlist Show Video ID  */
+.playlist__check {
+    width: 1rem;
+  }
+  .playlist-names {
+    display: flex;
+    gap:1rem;
+    border-bottom:2px solid lightgray;
+    padding-left: 1.2rem;
+    align-items: center;
+    height: 100%;
+   
+  }
+  .playlist__name {
+    letter-spacing: 1px;
+  }
+  
