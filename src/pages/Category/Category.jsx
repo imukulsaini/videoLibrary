@@ -3,12 +3,11 @@ import { NavBar } from "../components/Navbar/Nav";
 import { SideBar } from "../components/Sidebar/Sidebar";
 import { useVideosData } from "../../context/video.js/video";
 import "./Category.styles.css";
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import { VideoCards } from "../components/VideoCard/VideoCard";
 import { getCategoryVideos } from "../../api/api";
 import { HeadingMain } from "../components/HeadingMain/HeadingMain";
 
-import { useState } from "react/cjs/react.development";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
 
 export function Category() {
