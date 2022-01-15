@@ -15,6 +15,7 @@ export function Category() {
   const [loading, setLoading] = useState("idle");
   const [categoryName, setCategoryName] = useState("");
   const [error, setError] = useState("");
+
   const {
     
     state: { categoryVideos },
@@ -59,7 +60,7 @@ export function Category() {
           <HeadingMain name={pageHeadingName} />
 
           {loading === "pending" && (
-            <LoadingSpinner isDefaultCss={true} size={30} />
+            <LoadingSpinner isDefaultCss={true} size={35} />
           )}
           {loading === "fulfilled" && (
             <div className="home__discover ">
