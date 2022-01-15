@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+## Welcome to Crux Tube . Crux Tube is a web app where users can watch documentaries . All the Documentries in Crux Tube Have arranged into categoreis like History , BioGraphy etc. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Live Project - [Crux Tube](https://cruxtube.netlify.app/)
+## backend - [link](https://github.com/imukulsaini/videoLibraryBackend)
+
+# Credentials
+* username : mukulsaini
+* password : mukulsaini1@
+
+# Tech Stack 
+ 
+ * Fronted 
+   * HTML5
+   * CSS
+   * ReactJs
+   * Router - React Router v6 
+ 
+ * Backend
+    * Express-Js
+    * Mongoose
+    * MongoDB
+    * Authentication - JWT 
+   
+ # Features
+ * Like Videos
+ * Create Playlist
+ * Watch Later Videos
+ * Search 
+ * Update user Profile and Password
+
 
 ## Available Scripts
 
