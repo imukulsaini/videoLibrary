@@ -1,6 +1,3 @@
-## Welcome to Crux Tube . Crux Tube is a web app where users can watch documentaries . All the Documentries in Crux Tube Have arranged into categoreis like History , BioGraphy etc. 
-
-
 ## Live Project - [Crux Tube](https://cruxtube.netlify.app/)
 ## backend - [link](https://github.com/imukulsaini/videoLibraryBackend)
 
