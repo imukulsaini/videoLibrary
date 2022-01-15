@@ -16,6 +16,7 @@ export function Category() {
   const [categoryName, setCategoryName] = useState("");
   const [error, setError] = useState("");
   const {
+    
     state: { categoryVideos },
     videoDispatch,
   } = useVideosData();

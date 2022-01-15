@@ -134,7 +134,7 @@ export async function updatePassword(
 // watchLater
 
 export async function getWatchLater(userID, token) {
-  const url = `${API_KEY}/${userID}/watchlater`;
+  const url = `${API_KEY}/users/${userID}/watchlater`;
 
   const headers = {
     authorization: token,
@@ -153,7 +153,7 @@ export async function getWatchLater(userID, token) {
 }
 
 export async function addToWatchLaterVideoInServer(userID, token, videoID) {
-  const url = `${API_KEY}/${userID}/watchlater`;
+  const url = `${API_KEY}/users/${userID}/watchlater`;
   const headers = {
     authorization: token,
   };
@@ -173,7 +173,7 @@ export async function addToWatchLaterVideoInServer(userID, token, videoID) {
 }
 
 export async function removeWatchLaterVideoFromServer(userID, token, videoID) {
-  const url = `${API_KEY}/${userID}/watchlater`;
+  const url = `${API_KEY}/users/${userID}/watchlater`;
 
   try {
     const response = await axios.delete(url, {
@@ -196,7 +196,7 @@ export async function removeWatchLaterVideoFromServer(userID, token, videoID) {
 // Playlist
 
 export async function togglePlayListVideo(userID, token, videoID, playlistID) {
-  const url = `${API_KEY}/${userID}/playlist/${playlistID}`;
+  const url = `${API_KEY}/users/${userID}/playlist/${playlistID}`;
 
   const headers = {
     authorization: token,
@@ -217,7 +217,7 @@ export async function togglePlayListVideo(userID, token, videoID, playlistID) {
 }
 
 export async function getUserPlaylist(userID, token) {
-  const url = `${API_KEY}/${userID}/playlist`;
+  const url = `${API_KEY}/users/${userID}/playlist`;
   const headers = {
     authorization: token,
   };
@@ -231,7 +231,7 @@ export async function getUserPlaylist(userID, token) {
 
 export async function removePlaylist(userID, token, playlistID) {
   try {
-    const url = `${API_KEY}/${userID}/playlist/${playlistID}`;
+    const url = `${API_KEY}/users/${userID}/playlist/${playlistID}`;
     const headers = {
       authorization: token,
     };
@@ -249,7 +249,7 @@ export async function removePlaylist(userID, token, playlistID) {
 }
 
 export async function createUserPlaylist(userID, token, name) {
-  const url = `${API_KEY}/${userID}/playlist
+  const url = `${API_KEY}/users/${userID}/playlist
       `;
   const headers = {
     authorization: token,
@@ -269,7 +269,7 @@ export async function createUserPlaylist(userID, token, name) {
 }
 
 export async function getPlaylistVideo(userID, token, playlistID) {
-  const url = `${API_KEY}/${userID}/playlist/${playlistID}`;
+  const url = `${API_KEY}/users/${userID}/playlist/${playlistID}`;
   const headers = {
     authorization: token,
   };
@@ -283,7 +283,7 @@ export async function getPlaylistVideo(userID, token, playlistID) {
 
 export async function removePlaylistVideo(userID, token, videoID, playlistID) {
 
-  const url = `${API_KEY}/${userID}/playlist/${playlistID}`;
+  const url = `${API_KEY}/users/${userID}/playlist/${playlistID}`;
 
   const headers = {
     authorization: token,
@@ -307,7 +307,7 @@ export async function removePlaylistVideo(userID, token, videoID, playlistID) {
 // likes
 
 export async function getUserLike(userID, token) {
-  const url = `${API_KEY}/${userID}/likedVideo`;
+  const url = `${API_KEY}/users/${userID}/likedVideo`;
   const headers = {
     authorization: token,
   };
@@ -324,7 +324,7 @@ export async function getUserLike(userID, token) {
 }
 
 export async function addToLikeInServer(userID, token, videoID) {
-  const url = `${API_KEY}/${userID}/likedVideo`;
+  const url = `${API_KEY}/users/${userID}/likedVideo`;
   const headers = {
     authorization: token,
   };
@@ -344,7 +344,7 @@ export async function addToLikeInServer(userID, token, videoID) {
 }
 
 export async function removeLike(userID, token, videoID) {
-  const url = `${API_KEY}/${userID}/likedVideo`;
+  const url = `${API_KEY}/users/${userID}/likedVideo`;
   try {
     const response = await axios.delete(url, {
       headers: {
