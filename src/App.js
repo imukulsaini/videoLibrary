@@ -45,7 +45,7 @@ function App() {
                 type: "REFRESH_USER_DATA",
                 payload: userDetails,
               });
-              navigate(location.pathname)
+              navigate(location.search)
             } else {
               navigate("/login");
             }
