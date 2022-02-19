@@ -46,21 +46,23 @@ export function NavBar() {
 
             {/* search */}
 
-            <div className="nav__search">
-              <input
-                onChange={(e) => setSearchText(e.target.value)}
-                value={searchText}
-                className="search__input"
-                type="text"
-                placeholder="Search"
-              ></input>
-              <Link
-                to={`/?${createSearchParams({ search: searchText })}`}
-                style={{ paddingLeft: ".5rem" }}
-                className="search__button"
-              >
-                <BiSearch />
-              </Link>
+            <div className="nav__main-right">
+              <div className="nav__search">
+                <input
+                  onChange={(e) => setSearchText(e.target.value)}
+                  value={searchText}
+                  className="search__input"
+                  type="text"
+                  placeholder="Search"
+                ></input>
+                <Link
+                  to={`/?${createSearchParams({ search: searchText })}`}
+                  style={{ paddingLeft: ".5rem" }}
+                  className="search__button"
+                >
+                  <BiSearch />
+                </Link>
+              </div>
             </div>
 
             {/* account */}
@@ -124,7 +126,17 @@ export function NavBar() {
             </div>
           </div>
         </div>
+
         {/* mobile View */}
+        <div className="nav__mobile">
+          <div className="mobile__main">
+            <ul className="mobile__menu">
+              <li className="mobile__menu-item">Home</li>
+              <li className="mobile__menu-item">Search</li>
+              <li className="mobile__menu-item"> Category</li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </>
   );

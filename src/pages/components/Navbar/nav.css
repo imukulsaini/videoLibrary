@@ -2,6 +2,7 @@
   background-color: #1f1d2b;
   width: 100%;
   height: 4.5rem;
+  position: relative;
 }
 .nav__container {
   width: 85%;
@@ -148,3 +149,66 @@
   letter-spacing: 1px;
   color: #ffffff;
 }
+
+.burgur__menu {
+  gap: 0.3rem;
+  width: 2rem;
+  height: 1rem;
+  border: 12xp solid red;
+  flex-direction: column;
+  cursor: pointer;
+  /* display: flex; */
+  display:none ; /* display: none; */
+}
+.hamp__bar {
+  padding: 0.1rem;
+  color: #ffffff;
+  background-color: #ffffff;
+  border-radius: 1px solid white;
+}
+
+.nav__main-right{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+
+
+/* mobile styles */
+.nav__mobile{
+  position: absolute;
+  width: 100%;
+  height:4.5rem;
+  bottom: 0%;
+  /* top: 100%; */
+  z-index: 1;
+  background-color: #ffffff;
+}
+
+
+
+@media (max-width: 480px) {
+.nav__main{
+
+}
+
+.nav__search{
+  display: none;
+}
+
+.nav__mobile{
+  position: absolute;
+  width: 100%;
+  height:4.5rem;
+  bottom: 0%;
+  /* top: 100%; */
+  z-index: 1;
+  background-color: #ffffff;
+}
+
+
+
+}
+
+
+

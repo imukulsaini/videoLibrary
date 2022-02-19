@@ -19,7 +19,6 @@ import { Playlist } from "./pages/Private/PlayList/Playlist";
 import { getTokenFromLocalStorage,checkExpToken } from "./pages/utils";
 import { Category } from "./pages/Category/Category";
 import { PrivateRoute } from "./pages/Private/PrivateRoute/PrivateRoute";
-import "./App.css";
 import { NoMatch } from "./pages/NoMatch/NoMatch";
 
 function App() {

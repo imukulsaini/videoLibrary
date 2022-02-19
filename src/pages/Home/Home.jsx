@@ -1,7 +1,6 @@
 import { NavBar } from "../components/Navbar/Nav";
 import { useVideosData } from "../../context/video.js/video";
 
-import "./home.css";
 
 import { useEffect, useState } from "react";
 import { SideBar } from "../components/Sidebar/Sidebar";
@@ -11,6 +10,7 @@ import { VideoCards } from "../components/VideoCard/VideoCard";
 
 import { HeadingMain } from "../components/HeadingMain/HeadingMain";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
+import "./home.css";
 
 export function Home() {
   const {

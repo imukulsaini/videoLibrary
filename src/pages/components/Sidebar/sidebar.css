@@ -76,3 +76,12 @@
 .hv-itm:hover .hv-itm-nm {
   color: white;
 }
+
+
+/* mobile styles */
+
+@media (max-width:480px) {
+  .side-bar {
+    display: none;
+  }
+}
