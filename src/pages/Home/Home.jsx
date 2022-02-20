@@ -1,16 +1,14 @@
 import { NavBar } from "../components/Navbar/Nav";
 import { useVideosData } from "../../context/video.js/video";
-
-import "./home.css";
-
 import { useEffect, useState } from "react";
 import { SideBar } from "../components/Sidebar/Sidebar";
 import { useSearchParams } from "react-router-dom";
 import { getAllVideos } from "../../api/api";
 import { VideoCards } from "../components/VideoCard/VideoCard";
-
 import { HeadingMain } from "../components/HeadingMain/HeadingMain";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
+import { filterSearchVideos } from "./utils/home.utils";
+import "./home.css";
 
 export function Home() {
   const {
@@ -42,14 +40,7 @@ export function Home() {
     })();
   }, []);
 
-  function filterSearchVideos(videos, search) {
-    return videos.filter((video) =>
-      search === null
-        ? video
-        : video.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }
-  const filteredVideos = filterSearchVideos(videoDataAll, searchVideoText);
+  const filteredVideos = filterSearchVideos(videoDataAll, searchVideoText) ;
   return (
     <div className="home-page">
       <NavBar />
