@@ -3,6 +3,7 @@ import { updatePassword } from "../../../../api/api";
 import { useAuth } from "../../../../context/auth/auth";
 import { FormInput } from "../../../components/FormInput/FormInput";
 import { LoadingSpinner } from "../../../components/Spinner/LoadingSpinner";
+import { toast } from "react-toastify";
 
 export function PasswordSetting() {
   const [updateStatus, setUpdateStatus] = useState("idle");
@@ -50,8 +51,21 @@ export function PasswordSetting() {
     if (response.errMessage) {
       setUpdateStatus("rejected");
       setError(response.errMessage);
+      toast.error(`${response.errMessage}`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        progress: undefined,
+      });
     } else {
       setUpdateStatus("fulfilled");
+
+      toast.success("profile updated", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        progress: undefined,
+      });
     }
   }
 
@@ -72,41 +86,20 @@ export function PasswordSetting() {
               label={value.label}
               onChangeInput={onChangeInput}
               pattern={value.pattern}
+              errorMessage={value.errorMessage}
               {...value}
             />
           );
         })}
 
-        {updateStatus === "idle" && (
-          <button type="submit" className="account__action-btn">
-            change password
-          </button>
-        )}
-
-        {updateStatus === "pending" && (
-          <button className="account__action-btn">
-            changing password
+        <button type="submit" className="account__action-btn">
+          Change Password
+          {updateStatus === "pending" && (
             <span className="loading-indicator__spin">
-              <LoadingSpinner color={"#fffff"} isDefaultCss={false} size={13} />
+              <LoadingSpinner color={"black"} isDefaultCss={false} size={13} />
             </span>
-          </button>
-        )}
-        {updateStatus === "fulfilled" && (
-          <>
-            <button type="submit" className="account__action-btn">
-              update password
-            </button>
-            <span className="profile__success-status">password changed</span>
-          </>
-        )}
-        {updateStatus === "rejected" && (
-          <>
-            <span className="password__error">{error}</span>
-            <button type="submit" className="account__action-btn">
-              change password
-            </button>
-          </>
-        )}
+          )}
+        </button>
       </form>
     </div>
   );

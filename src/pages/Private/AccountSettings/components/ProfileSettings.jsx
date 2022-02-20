@@ -3,8 +3,10 @@ import { updateProfile } from "../../../../api/api";
 import { useAuth } from "../../../../context/auth/auth";
 import { FormInput } from "../../../components/FormInput/FormInput";
 import { FormNamesInput } from "../../../components/FormInput/FormNamesInput";
-import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { LoadingSpinner } from "../../../components/Spinner/LoadingSpinner";
+toast.configure();
 
 export function ProfileSetting() {
   const [loading, setLoading] = useState("idle");
@@ -61,12 +63,6 @@ export function ProfileSetting() {
       required: true,
     },
   ];
-  const override = css`
-    display: block;
-    margin: 0 auto;
-    margin-top: 10rem;
-    border-color: #808191;
-  `;
 
   const {
     authDispatch,
@@ -101,9 +97,21 @@ export function ProfileSetting() {
     if (response.errMessage) {
       setUpdateStatus("rejected");
       setError(response.errMessage);
+      toast.error(`${response.errMessage}`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        progress: undefined,
+      });
     } else {
       setUpdateStatus("fulfilled");
       authDispatch({ type: "UPDATE_PROFILE_DATA", payload: response });
+      toast.success("profile updated", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        progress: undefined,
+      });
     }
   }
 
@@ -113,7 +121,9 @@ export function ProfileSetting() {
 
   return (
     <div className="setting__profile">
-      {loading === "pending" && <ClipLoader css={override} loading size={30} />}
+      {loading === "pending" && (
+        <LoadingSpinner isDefaultCss={true} size={13} />
+      )}
       {loading === "fulfilled" && (
         <form className="profile-change__form" onSubmit={updateUserProfile}>
           <div className="sign-up__name">
@@ -148,38 +158,18 @@ export function ProfileSetting() {
             );
           })}
 
-          {updateStatus === "rejected" && (
-            <>
-              <button type="submit" className="account__action-btn">
-                Save
-              </button>
-              <span className="profile__error">{error}</span>
-            </>
-          )}
-
-          {updateStatus === "idle" && (
-            <button type="submit" className="account__action-btn">
-              Save
-            </button>
-          )}
-
-          {updateStatus === "pending" && (
-            <button className="account__action-btn">
-              updating
+          <button type="submit" className="account__action-btn">
+            Save
+            {updateStatus === "pending" && (
               <span className="loading-indicator__spin">
-                <ClipLoader color={"#fffff"} loading size={13} />
-              </span>{" "}
-            </button>
-          )}
-
-          {updateStatus === "fulfilled" && (
-            <>
-              <button type="submit" className="account__action-btn">
-                Save
-              </button>
-              <span className="profile__success-status">profile updated</span>
-            </>
-          )}
+                <LoadingSpinner
+                  color={"black"}
+                  isDefaultCss={false}
+                  size={13}
+                />
+              </span>
+            )}
+          </button>
         </form>
       )}
     </div>
