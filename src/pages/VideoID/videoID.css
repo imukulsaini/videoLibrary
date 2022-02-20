@@ -182,8 +182,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: aquamarine;
-  /* background-color: #827972; */
+  /* background-color: aquamarine; */
+  background-color: #827972;
   opacity: 0.6;
 }
 .videoID__playlist-modal {
