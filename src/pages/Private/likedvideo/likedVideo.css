@@ -9,6 +9,7 @@
   "sidebar main"
   
   ;
+  overflow:hidden
 }
 .nav{
   grid-area: nav;
@@ -20,7 +21,7 @@
   grid-area: main;
   background-color: #1f1d2b;
   padding-bottom: 5rem;
-
+  overflow-y: scroll;
 
 }
 .like-video__show{

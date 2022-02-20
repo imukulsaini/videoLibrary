@@ -4,17 +4,26 @@
   height: 100vh;
   display: grid;
   grid-template-rows: 4.5rem auto;
+  grid-template-columns: 5fr 40rem 5fr;
   grid-template-areas:
-    "nav"
-    "main";
+    "nav nav nav"
+    "left main right";
   background-color: #1f1d2b;
 }
 .account-setting__main {
   margin-top: 1rem;
   grid-area: main;
-  width: 60%;
+  width: 100%;
   justify-self: center;
   background-color: #252836;
+  height: fit-content;
+  border-radius: 5px;
+}
+.account__left {
+  grid-area: left;
+}
+.account__right {
+  grid-area: right;
 }
 .account__main {
   width: 100%;
@@ -38,11 +47,10 @@
   font-size: 1.1rem;
   letter-spacing: 1px;
   text-decoration: none;
-  color:#ffffff;
+  color: #ffffff;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 8px;
-
 }
 
 .profile-change__form {
@@ -148,8 +156,8 @@
   font-size: 0.9rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #228b22;
-  border: 1px solid #228b22;
+  background-color: #39a504;
+  border: 1px solid #39a504;
   border-radius: 8px;
   cursor: pointer;
 }

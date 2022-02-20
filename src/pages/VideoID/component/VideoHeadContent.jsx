@@ -52,7 +52,6 @@ export function VideoHead({
   }
 
   async function addToLikedVideo(videoID) {
-    console.log("log hus ah");
     const response = await addToLikeInServer(userID, token, videoID);
     if (response.errMessage) {
       setError(response.errMessage);
@@ -143,7 +142,7 @@ export function VideoHead({
                   onClick={()=> isUserLogin && playlistModalOpen()}
                   className="icon"
                 />
-                <span className="videoHead__icon-name">SAVE</span>
+                <span className="videoHead__icon-name">Save</span>
               </div>
             </li>
 
@@ -168,7 +167,7 @@ export function VideoHead({
                     }
                     className="icon"
                   />
-                  <span className="videoHead__icon-name"> watch Later </span>
+                  <span className="videoHead__icon-name"> Watch Later </span>
                 </div>
               )}
             </li>

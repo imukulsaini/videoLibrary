@@ -27,6 +27,8 @@ export function AccountSettings() {
           </section>
         </div>
       </section>
+      <section className="account__left"></section>
+      <section className="account__right"></section>
     </div>
   );
 }

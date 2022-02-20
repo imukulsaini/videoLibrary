@@ -16,10 +16,9 @@ import { PasswordSetting } from "./pages/Private/AccountSettings/components/Pass
 import { ProfileSetting } from "./pages/Private/AccountSettings/components/ProfileSettings";
 import { PlaylistID } from "./pages/Private/PlaylistID/PlaylistID";
 import { Playlist } from "./pages/Private/PlayList/Playlist";
-import { getTokenFromLocalStorage,checkExpToken } from "./pages/utils";
+import { getTokenFromLocalStorage, checkExpToken } from "./pages/utils";
 import { Category } from "./pages/Category/Category";
 import { PrivateRoute } from "./pages/Private/PrivateRoute/PrivateRoute";
-import "./App.css";
 import { NoMatch } from "./pages/NoMatch/NoMatch";
 
 function App() {
@@ -37,7 +36,7 @@ function App() {
         const token = getTokenFromLocalStorage();
         if (token) {
           const { exp, userID } = jwt_decode(token);
-          const expToken = checkExpToken(exp) ;
+          const expToken = checkExpToken(exp);
           if (!expToken) {
             const userDetails = await getUserData(token, userID);
             if (!userDetails.errMessage) {
@@ -45,7 +44,8 @@ function App() {
                 type: "REFRESH_USER_DATA",
                 payload: userDetails,
               });
-              navigate(location.search)
+              navigate(`${location.pathname}${location?.search}` || "/");
+
             } else {
               navigate("/login");
             }
@@ -56,8 +56,6 @@ function App() {
       }
     })();
   }, []);
-
-  
 
   return (
     <div className="App">
