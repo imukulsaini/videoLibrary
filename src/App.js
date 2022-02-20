@@ -29,7 +29,7 @@ function App() {
 
   let location = useLocation();
   const navigate = useNavigate();
-
+  const userPrevLocation = `${location?.pathname} ${location?.search}`;
   useEffect(() => {
     (async function () {
       if (!isUserLogin) {
@@ -44,7 +44,7 @@ function App() {
                 type: "REFRESH_USER_DATA",
                 payload: userDetails,
               });
-              navigate(`${location.pathname}${location?.search}` || "/");
+              navigate(userPrevLocation||'/');
 
             } else {
               navigate("/login");
