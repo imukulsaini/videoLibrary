@@ -1,6 +1,6 @@
 import { BiSearch } from "react-icons/bi";
 import { Link, createSearchParams, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import { GrFormClose } from "react-icons/gr";
 import "./searchbar.css";
 
@@ -14,7 +14,6 @@ export function SearchBar() {
       setSearchText(searchVideoText);
     }
   }, [searchVideoText]);
-
 
   function clearSearchResult() {
     setSearchText("");
