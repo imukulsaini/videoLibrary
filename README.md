@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+## Live Project - [Crux Tube](https://cruxtube.netlify.app/)
+## backend - [link](https://github.com/imukulsaini/videoLibraryBackend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Credentials
+* username : mukulsaini
+* password : mukulsaini1@
+
+# Tech Stack 
+ 
+ * Fronted 
+   * HTML5
+   * CSS
+   * ReactJs
+   * Router - React Router v6 
+ 
+ * Backend
+    * Express-Js
+    * Mongoose
+    * MongoDB
+    * Authentication - JWT 
+   
+ # Features
+ * Like Videos
+ * Create Playlist
+ * Watch Later Videos
+ * Search 
+ * Update user Profile and Password
+
 
 ## Available Scripts
 

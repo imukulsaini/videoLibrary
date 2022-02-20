@@ -5,7 +5,7 @@ import { NavBar } from "../../components/Navbar/Nav";
 import { SideBar } from "../../components/Sidebar/Sidebar";
 
 export function Playlist() {
-  return (
+return (
     <div className="playlist">
       <NavBar />
       <SideBar isSideBarShrink={false} />

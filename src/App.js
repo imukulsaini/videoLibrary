@@ -45,6 +45,7 @@ function App() {
                 payload: userDetails,
               });
               navigate(`${location.pathname}${location?.search}` || "/");
+
             } else {
               navigate("/login");
             }

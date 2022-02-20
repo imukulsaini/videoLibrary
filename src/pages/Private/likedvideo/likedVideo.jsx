@@ -1,13 +1,12 @@
 import "./likedVideo.css";
 import { NavBar } from "../../components/Navbar/Nav";
 import { SideBar } from "../../components/Sidebar/Sidebar";
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import { VideoCards } from "../../components/VideoCard/VideoCard";
 import { LikedVideoRemoveButton } from "./components/LikedVideoRemoveButton";
 import { useLike } from "../../../context/likeVideo/likeVideo";
 import { useAuth } from "../../../context/auth/auth";
 import { getUserLike } from "../../../api/api";
-import { useState } from "react/cjs/react.development";
 import { HeadingMain } from "../../components/HeadingMain/HeadingMain";
 import { LoadingSpinner } from "../../components/Spinner/LoadingSpinner";
 
@@ -25,7 +24,6 @@ export function LikedVideo() {
  
   useEffect(() => {
     setLoading("pending");
-
     if (userID) {
       (async function () {
         const response = await getUserLike(userID, token);
@@ -39,6 +37,7 @@ export function LikedVideo() {
       })();
     }
   }, [userID, token]);
+
   return (
     <div className="like-video">
       <NavBar />

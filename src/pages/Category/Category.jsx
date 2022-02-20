@@ -3,12 +3,11 @@ import { NavBar } from "../components/Navbar/Nav";
 import { SideBar } from "../components/Sidebar/Sidebar";
 import { useVideosData } from "../../context/video.js/video";
 import "./Category.styles.css";
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import { VideoCards } from "../components/VideoCard/VideoCard";
 import { getCategoryVideos } from "../../api/api";
 import { HeadingMain } from "../components/HeadingMain/HeadingMain";
 
-import { useState } from "react/cjs/react.development";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
 
 export function Category() {
@@ -16,7 +15,9 @@ export function Category() {
   const [loading, setLoading] = useState("idle");
   const [categoryName, setCategoryName] = useState("");
   const [error, setError] = useState("");
+
   const {
+    
     state: { categoryVideos },
     videoDispatch,
   } = useVideosData();
@@ -59,7 +60,7 @@ export function Category() {
           <HeadingMain name={pageHeadingName} />
 
           {loading === "pending" && (
-            <LoadingSpinner isDefaultCss={true} size={30} />
+            <LoadingSpinner isDefaultCss={true} size={35} />
           )}
           {loading === "fulfilled" && (
             <div className="home__discover ">

@@ -1,10 +1,9 @@
 import { usePlaylist } from "../../../../context/Playlist/playlist";
 
 import { useAuth } from "../../../../context/auth/auth";
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import { PlaylistNameToggleCheck } from "./playlistToggleCheck";
 import "../playlist.styles.css";
-import { useState } from "react/cjs/react.development";
 import { Link } from "react-router-dom";
 import { CgPlayListRemove } from "react-icons/cg";
 import { getUserPlaylist,removePlaylist } from "../../../../api/api";
