@@ -2,16 +2,18 @@ import { useAuth } from "../../../../context/auth/auth";
 import { usePlaylist } from "../../../../context/Playlist/playlist";
 import { removePlaylistVideo } from "../../../../api/api";
 import { useState } from "react";
-import { MdPlaylistAdd } from "react-icons/md";
+import { LoadingSpinner } from "../../../components/Spinner/LoadingSpinner";
 
 export function PlaylistVideoRemoveOption({ videoID, playlistID, buttonText }) {
   const {
     authState: { userID, token },
   } = useAuth();
+  const [loading, setLoading] = useState("idle");
   const { playlistDispatch } = usePlaylist();
   const [error, setError] = useState("");
 
   async function removeVideoInPlaylist(videoID, playlistID) {
+    setLoading("pending");
     const response = await removePlaylistVideo(
       userID,
       token,
@@ -20,7 +22,7 @@ export function PlaylistVideoRemoveOption({ videoID, playlistID, buttonText }) {
     );
     if (response.errMessage) {
       setError(response.errMessage);
-      console.log(response.errMessage);
+      setLoading("fulfilled");
     } else {
       playlistDispatch({
         type: "REMOVE_VIDEO_FROM_PLAYLIST",
@@ -29,6 +31,7 @@ export function PlaylistVideoRemoveOption({ videoID, playlistID, buttonText }) {
           playlist: response,
         },
       });
+      setLoading("fulfilled");
     }
   }
 
@@ -37,8 +40,12 @@ export function PlaylistVideoRemoveOption({ videoID, playlistID, buttonText }) {
       onClick={() => removeVideoInPlaylist(videoID, playlistID)}
       className="playlist__options-items"
     >
-      <MdPlaylistAdd color="white" className="option-icon watch-later " />
       <button className="dropdown-option__btn"> {buttonText}</button>
+      {loading === "pending" && (
+        <span className="loading-indicator__spin">
+          <LoadingSpinner color={"white"} isDefaultCss={false} size={13} />
+        </span>
+      )}
     </div>
   );
 }
