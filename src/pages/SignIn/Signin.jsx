@@ -1,13 +1,12 @@
 import { NavBar } from "../components/Navbar/Nav";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { loginUser } from "../../api/api";
 import { useAuth } from "../../context/auth/auth";
 import { ReactComponent as BrandLogo } from "../../assets/brand-logo.svg";
 import { FormInput } from "../components/FormInput/FormInput";
 import "./signin.css";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
-import { useEffect } from "react/cjs/react.development";
 
 export function SignIn() {
   const [formValues, setFormValues] = useState({
