@@ -66,6 +66,7 @@ export function Category() {
               {categoryVideos &&
                 categoryVideos.map((video) => (
                   <VideoCards
+                    key={video._id}
                     isvideoCardTypeHorizontal={false}
                     videoData={video}
                     isDropDownShow={false}
