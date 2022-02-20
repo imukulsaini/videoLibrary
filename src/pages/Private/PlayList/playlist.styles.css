@@ -8,6 +8,7 @@
     "nav nav"
     "sidebar playlistMain"
     ;
+    overflow:hidden;
   }
   .nav{
     grid-area: nav;
@@ -16,6 +17,11 @@
   .side-bar{
     grid-area: sidebar;
   
+  }
+  .playlist__main{
+    grid-area: playlistMain;
+    overflow-y: scroll;
+
   }
 
   .playlist__name-lists{

@@ -7,6 +7,7 @@
   grid-template-areas:
     "nav nav"
     "sidebar main";
+    overflow: hidden;
 }
 .nav {
   grid-area: nav;
@@ -20,6 +21,8 @@
   height: 100%;
   grid-area: main;
   background-color: #1f1d2b;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 
