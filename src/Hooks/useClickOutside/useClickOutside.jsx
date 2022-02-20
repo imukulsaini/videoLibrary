@@ -1,5 +1,4 @@
-import { useEffect ,useRef} from "react/cjs/react.development";
-
+import { useEffect,useRef } from "react/cjs/react.production.min";
 export function useClickOutSide(closeMenuOptions) {
     const menuRef = useRef();
     useEffect(() => {
