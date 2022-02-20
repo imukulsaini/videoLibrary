@@ -68,7 +68,9 @@ export function VideoCards({
           </div>
         </div>
         {isDropDownShow && (
-          <DropDownOptionButton>{children}</DropDownOptionButton>
+          <DropDownOptionButton 
+          key={videoID}
+          >{children}</DropDownOptionButton>
         )}
       </div>
     </>
