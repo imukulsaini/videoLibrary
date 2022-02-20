@@ -7,13 +7,14 @@ import { ReactComponent as BrandLogo } from "../../assets/brand-logo.svg";
 import { FormInput } from "../components/FormInput/FormInput";
 import "./signin.css";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
+import { useEffect } from "react/cjs/react.development";
 
 export function SignIn() {
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",
   });
-
+  const [isAutoFill, setAutoFill] = useState(false);
   const values = [
     {
       id: 0,
@@ -23,6 +24,7 @@ export function SignIn() {
       pattern: "^[A-Za-z0-9]{1,}$",
       placeholder: "killua zoldyck",
       required: true,
+      value: formValues.username,
       label: "user name",
     },
 
@@ -30,6 +32,7 @@ export function SignIn() {
       id: 1,
       htmlFor: "password",
       name: "password",
+      value: formValues.password,
       type: "password",
       placeholder: "*******",
       required: true,
@@ -44,6 +47,18 @@ export function SignIn() {
   const navigate = useNavigate();
 
   const userHistoryRoute = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (isAutoFill) {
+      setFormValues({
+        ...formValues,
+        username: process.env.REACT_APP_USERNAME,
+        password: process.env.REACT_APP_PASSWORD,
+      });
+    } else {
+      setFormValues({ ...formValues, username: "", password: "" });
+    }
+  }, [isAutoFill]);
 
   async function checkUserCredentials(e) {
     e.preventDefault();
@@ -67,6 +82,11 @@ export function SignIn() {
   function onChangeInput(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
+
+  function onChangeAutoFill() {
+    setAutoFill((autoFill) => !autoFill);
+  }
+
   return (
     <div className="sign-in">
       <NavBar />
@@ -95,10 +115,19 @@ export function SignIn() {
                     label={value.label}
                     required={value.required}
                     pattern={value.pattern}
+                    value={value.value}
                   />
                 ))}
               </div>
-
+              <div className="auto-fill__data">
+                <input
+                  type="checkbox"
+                  name="auto-fill__input"
+                  value={isAutoFill}
+                  onChange={onChangeAutoFill}
+                />
+                <label htmlFor="auto-fill">Auto Fill</label>
+              </div>
               <div className="error__message">
                 {loading === "rejected" && (
                   <span className="sign-in__error">{error}</span>
