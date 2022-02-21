@@ -58,8 +58,8 @@ export function VideoID() {
     }
   }, [params.videoID, videoDataAll]);
 
-  const checkisUserLikeVideo = videoByID?.likesBy?.includes(userID);
-  const checkIsVideoInUserWatchLater = checkVideoInWatchLater(
+  const checkisUserLikeVideo = userID && videoByID?.likesBy?.includes(userID);
+  const checkIsVideoInUserWatchLater = watchLaterVideos&& checkVideoInWatchLater(
     watchLaterVideos,
     videoByID._id
   );
