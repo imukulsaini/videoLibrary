@@ -1,7 +1,7 @@
 import "./likedVideo.css";
 import { NavBar } from "../../components/Navbar/Nav";
 import { SideBar } from "../../components/Sidebar/Sidebar";
-import { useEffect ,useState} from "react";
+import { useEffect, useState } from "react";
 import { VideoCards } from "../../components/VideoCard/VideoCard";
 import { LikedVideoRemoveButton } from "./components/LikedVideoRemoveButton";
 import { useLike } from "../../../context/likeVideo/likeVideo";
@@ -21,22 +21,26 @@ export function LikedVideo() {
     likeDispatch,
   } = useLike();
 
- 
   useEffect(() => {
+    let likeMount = true;
     setLoading("pending");
-    if (userID) {
-      (async function () {
+    (async function () {
+      if (userID) {
         const response = await getUserLike(userID, token);
         if (!response?.errMessage) {
           setLoading("fulfilled");
-          likeDispatch({ type: "INITIALIZE_LIKE_VIDEOS", payload: response });
+          likeMount === true &&
+            likeDispatch({ type: "INITIALIZE_LIKE_VIDEOS", payload: response });
         } else {
           setLoading("rejected");
           setError(response.errMessage);
         }
-      })();
-    }
-  }, [userID, token]);
+      }
+    })();
+    return () => {
+      likeMount = false;
+    };
+  }, [userID]);
 
   return (
     <div className="like-video">
@@ -44,14 +48,15 @@ export function LikedVideo() {
       <SideBar />
       <section className="like__main">
         <HeadingMain name={"Your Likes"} />
-        {loading === "pending" && <LoadingSpinner  
-        isDefaultCss={true}
-        size={30} />}
+        {loading === "pending" && (
+          <LoadingSpinner isDefaultCss={true} size={30} />
+        )}
         {loading === "fulfilled" &&
           likedVideos &&
           likedVideos?.map((video) => (
             <div className="like-video__show">
               <VideoCards
+                key={video._id}
                 isvideoCardTypeHorizontal={true}
                 videoData={video}
                 isDropDownShow={true}
