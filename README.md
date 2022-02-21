@@ -1,9 +1,17 @@
 ## Live Project - [Crux Tube](https://cruxtube.netlify.app/)
-## backend - [link](https://github.com/imukulsaini/videoLibraryBackend)
+## Backend - [Link](https://github.com/imukulsaini/videoLibraryBackend)
+
+## API Documentation - [Crux Tube API Doc](https://crux-tube-api.netlify.app/)
+
 
 # Credentials
 * username : mukulsaini
 * password : mukulsaini1@
+
+# Environment variables
+* REACT_APP_API_KEY
+* REACT_APP_USERNAME 
+* REACT_APP_PASSWORD
 
 # Tech Stack 
  
