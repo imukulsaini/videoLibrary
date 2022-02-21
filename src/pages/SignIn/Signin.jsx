@@ -48,7 +48,7 @@ export function SignIn() {
   const userHistoryRoute = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (isAutoFill) {
+    if (isAutoFill === true) {
       setFormValues({
         ...formValues,
         username: process.env.REACT_APP_USERNAME,
@@ -82,7 +82,7 @@ export function SignIn() {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
 
-  function onChangeAutoFill() {
+  function onChangeAutoFill(e) {
     setAutoFill((autoFill) => !autoFill);
   }
 
@@ -123,7 +123,7 @@ export function SignIn() {
                   type="checkbox"
                   name="auto-fill__input"
                   value={isAutoFill}
-                  onChange={onChangeAutoFill}
+                  onChange={(e)=>onChangeAutoFill(e)}
                 />
                 <label htmlFor="auto-fill">Auto Fill</label>
               </div>
