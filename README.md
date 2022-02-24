@@ -1,7 +1,7 @@
 ## Live Project - [Crux Tube](https://cruxtube.netlify.app/)
 ## Backend - [Link](https://github.com/imukulsaini/videoLibraryBackend)
 
-## API Documentation - [Crux Tube API Doc](https://crux-tube-api.netlify.app/)
+## API Documentation - [Crux Tube API Doc](https://crux-tube-api.vercel.app/)
 
 
 # Credentials
