@@ -25,7 +25,6 @@ export function VideoHead({
   const [likedByUser, setUserLike] = useState(userLikeVideo);
   const [watchByUser, setUserWatch] = useState(false);
   const [isPlaylistModal, setPlaylistModal] = useState(false);
-
   const { watchLaterDispatch } = useWatchLater();
   const {
     authState: { userID, token, isUserLogin },
@@ -136,10 +135,13 @@ export function VideoHead({
             </li>
 
             <li className="videoHead__menu-item">
-              <div className="videoHead__icon">
+              <div
+                onClick={() => isUserLogin && playlistModalOpen()}
+                className="videoHead__icon"
+              >
                 <MdPlaylistAdd
                   size="1.5rem"
-                  onClick={()=> isUserLogin && playlistModalOpen()}
+                  onClick={() => isUserLogin && playlistModalOpen()}
                   className="icon"
                 />
                 <span className="videoHead__icon-name">Save</span>
