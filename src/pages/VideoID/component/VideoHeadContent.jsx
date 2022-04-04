@@ -8,34 +8,47 @@ import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { PlaylistNameShow } from "../../Private/PlayList/components/PlaylistNamesShow";
 import { CreatePlaylist } from "../../Private/PlayList/components/PlaylistCreate";
+import { checkUserInVideoLikes, checkVideoInWatchLater } from "../utils";
 import {
   addToLikeInServer,
   addToWatchLaterVideoInServer,
   removeLike,
 } from "../../../api/api";
-
-export function VideoHead({
-  name,
-  views,
-  videoID,
-  likes,
-  userLikeVideo,
-  userWatch,
-}) {
-  const [likedByUser, setUserLike] = useState(userLikeVideo);
+export function VideoHead({ name, views, videoID, likes, videoIDLikesBy }) {
+  const [likedByUser, setUserLike] = useState(false);
   const [watchByUser, setUserWatch] = useState(false);
   const [isPlaylistModal, setPlaylistModal] = useState(false);
-  const { watchLaterDispatch } = useWatchLater();
+  const [videoLikes, setLikesCount] = useState(likes);
+  const {
+    state: { watchLaterVideos },
+    watchLaterDispatch,
+  } = useWatchLater();
+
   const {
     authState: { userID, token, isUserLogin },
   } = useAuth();
+
   const { likeDispatch } = useLike();
   const { videoDispatch } = useVideosData();
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setUserWatch(userWatch);
-  }, [userWatch]);
+    if (watchLaterVideos && videoID) {
+      const checkIsVideoInUserWatchLater = checkVideoInWatchLater(
+        watchLaterVideos,
+        videoID
+      );
+      setUserWatch(checkIsVideoInUserWatchLater);
+    }
+  }, [watchLaterVideos, videoID, userID]);
+
+  useEffect(() => {
+    if (videoIDLikesBy && userID) {
+      const result = checkUserInVideoLikes(videoIDLikesBy, userID);
+      setUserLike(result);
+      setLikesCount(likes);
+    }
+  }, [videoIDLikesBy, videoID, userID]);
 
   async function addToWatchLaterVideos(userID, token, videoID) {
     const response = await addToWatchLaterVideoInServer(userID, token, videoID);
@@ -56,6 +69,7 @@ export function VideoHead({
       setError(response.errMessage);
     } else {
       setUserLike(true);
+      setLikesCount((like) => like + 1);
       likeDispatch({
         type: "ADD_TO_LIKED_VIDEO",
         payload: response,
@@ -76,6 +90,7 @@ export function VideoHead({
       setError(response.errMessage);
     } else {
       setUserLike(false);
+      setLikesCount((like) => like - 1);
       likeDispatch({
         type: "REMOVE_FROM_LIKED_VIDEO",
         payload: videoID,
@@ -120,7 +135,7 @@ export function VideoHead({
                     className="icon"
                   />
 
-                  <span className="videoHead__icon-name">{likes} </span>
+                  <span className="videoHead__icon-name">{videoLikes} </span>
                 </div>
               ) : (
                 <div
@@ -129,7 +144,7 @@ export function VideoHead({
                 >
                   <AiFillHeart size="1.5rem" className="icon" />
 
-                  <span className="videoHead__icon-name ">{likes} </span>
+                  <span className="videoHead__icon-name ">{videoLikes} </span>
                 </div>
               )}
             </li>
