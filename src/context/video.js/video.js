@@ -18,7 +18,7 @@ function videoReducer(state, action) {
     case "VIDEO_LIKED_BY_USER": {
       return {
         ...state, 
-        videoDataAll: state.videoDataAll.map((video) =>
+        videoDataAll: state.videoDataAll.length > 0 && state.videoDataAll.map((video) =>
           video?._id === action.payload.videoID
             ? { ...video, likesBy: [...video.likesBy, action.payload.userID] , likes:video.likes +1 }
             : video
@@ -28,7 +28,7 @@ function videoReducer(state, action) {
     case "VIDEO_DISLIKE_BY_USER": {
       return {
         ...state,
-        videoDataAll: state.videoDataAll.map((video) =>
+        videoDataAll: state.videoDataAll.length > 0 && state.videoDataAll.map((video) =>
           video?._id === action.payload.videoID
             ? {
               ...video,
