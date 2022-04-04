@@ -6,63 +6,44 @@ import { NavBar } from "../components/Navbar/Nav";
 import { SideBar } from "../components/Sidebar/Sidebar";
 import { VideoPlayer } from "./component/VideoIDPlayer";
 import { useParams } from "react-router-dom";
-import { useAuth } from "../../context/auth/auth";
 import { useVideosData } from "../../context/video.js/video";
-import { useWatchLater } from "../../context/watchLater/watchLater";
 import { getVideoByID } from "../../api/api";
 import "./videoID.css";
 import { LoadingSpinner } from "../components/Spinner/LoadingSpinner";
-
-function checkVideoInWatchLater(watchLaterVideos, videoID) {
-  const response = watchLaterVideos?.find((video) => video._id === videoID);
-  return response ? true : false;
-}
 
 export function VideoID() {
   const [videoByID, setVideoByID] = useState([]);
   const [loading, setLoading] = useState("idle");
   const [error, setError] = useState("");
 
-  const {
-    authState: { userID },
-  } = useAuth();
-
   const params = useParams();
-  const {
-    state: { watchLaterVideos },
-  } = useWatchLater();
-
   const {
     state: { videoDataAll },
   } = useVideosData();
 
   useEffect(() => {
-    setLoading("pending");
-    const findVideo = videoDataAll.find(
-      (video) => video.videoID === params.videoID
-    );
-    if (findVideo === undefined) {
-      (async function () {
-        const videoResponse = await getVideoByID(params.videoID);
-        if (videoResponse.errMessage) {
-          setLoading("rejected");
-          setError(videoResponse.errMessage);
-        } else {
-          setLoading("fulfilled");
-          setVideoByID(videoResponse);
-        }
-      })();
-    } else {
-      setLoading("fulfilled");
-      setVideoByID(findVideo);
+    if (videoDataAll && params.videoID) {
+      const findVideo = videoDataAll.find(
+        (video) => video.videoID === params.videoID
+      );  
+      if (findVideo === undefined && videoByID.length === 0 ) {
+        setLoading("pending");
+        (async function () {
+          const videoResponse = await getVideoByID(params.videoID);
+          if (videoResponse.errMessage) {
+            setLoading("rejected");
+            setError(videoResponse.errMessage);
+          } else {
+            setLoading("fulfilled");
+            setVideoByID(videoResponse);
+          }
+        })();
+      } else {
+        setLoading("fulfilled");
+        setVideoByID(findVideo);
+      }
     }
   }, [params.videoID, videoDataAll]);
-
-  const checkisUserLikeVideo = userID && videoByID?.likesBy?.includes(userID);
-  const checkIsVideoInUserWatchLater = watchLaterVideos&& checkVideoInWatchLater(
-    watchLaterVideos,
-    videoByID._id
-  );
 
   return (
     <>
@@ -87,9 +68,8 @@ export function VideoID() {
                     name={videoByID.title}
                     views={videoByID.views}
                     videoID={videoByID._id}
+                    videoIDLikesBy={videoByID.likesBy}
                     likes={videoByID.likes}
-                    userLikeVideo={checkisUserLikeVideo}
-                    userWatch={checkIsVideoInUserWatchLater}
                   />
                 )}
 
